@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Takımımız: Hatayspor</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+    <!-- Üst Menü (Navbar) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Web Projesi</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Hakkında</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html">Özgeçmiş</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sehir.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="miras.html">Takımımız</a></li>
+                    <li class="nav-item"><a class="nav-link" href="api.html">İlgi Alanlarım</a></li>
+                    <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary btn-sm ms-2" href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Ana İçerik -->
+    <main class="container mt-5">
+        
+        <!-- Sayfa Başlığı -->
+        <header class="text-center mb-5">
+            <h1 class="display-4 fw-bold" style="color: #6c142c;">Gururumuz: Hatayspor</h1>
+            <p class="lead text-muted">Bordo-Beyazlı sevdamızın tarihi ve detayları.</p>
+        </header>
+
+        <!-- Üst Bölüm: Bilgiler ve Resim -->
+        <div class="row mb-5 align-items-center">
+            <!-- Sol Taraf: Bilgi Listesi -->
+            <div class="col-md-6 mb-4 mb-md-0">
+                <section class="bg-white p-4 rounded shadow-sm h-100 border-top border-4" style="border-color: #6c142c !important;">
+                    <h3 class="border-bottom pb-2 mb-3" style="color: #6c142c;">Takım Bilgileri</h3>
+                    
+                    <ul class="list-group list-group-flush fs-5">
+                        <li class="list-group-item"><strong>Kuruluş Yılı:</strong> 1967</li>
+                        <li class="list-group-item"><strong>Renkleri:</strong> Bordo ve Beyaz</li>
+                        <li class="list-group-item"><strong>Stadyum:</strong> Yeni Hatay Stadyumu</li>
+                        <li class="list-group-item"><strong>Kapasite:</strong> 25.000 Kişi</li>
+                        <li class="list-group-item"><strong>Lakap:</strong> Güneyin Yıldızı</li>
+                    </ul>
+                </section>
+            </div>
+            
+            <!-- Sağ Taraf: Takım Görseli -->
+            <div class="col-md-6 text-center">
+                <img src="hatayspor.jpg" class="img-fluid rounded shadow" alt="Hatayspor" style="max-height: 400px; object-fit: cover;">
+            </div>
+        </div>
+
+        <!-- 1. Tablo: Yakın Dönem Lig İstatistikleri -->
+        <section class="bg-white p-4 rounded shadow-sm mb-5">
+            <h3 class="border-bottom pb-2 mb-4" style="color: #6c142c;">Yakın Dönem Lig İstatistikleri</h3>
+            <p class="text-muted">Aşağıdaki tabloda takımımızın 2019'dan günümüze uzanan performans özetini inceleyebilirsiniz.</p>
+            
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered border-secondary text-center align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Sezon</th>
+                            <th>Lig</th>
+                            <th>Pozisyon</th>
+                            <th>Önemli Gelişme</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Eksik olan 2019-2020 Sezonu Eklendi -->
+                        <tr>
+                            <td><strong>2019 - 2020</strong></td>
+                            <td>TFF 1. Lig</td>
+                            <td>1. (Şampiyon)</td>
+                            <td class="text-success fw-bold">Tarihinde İlk Kez Süper Lig'e Yükseliş</td>
+                        </tr>
+                        <!-- Eksik olan 2020-2021 Sezonu Eklendi -->
+                        <tr>
+                            <td><strong>2020 - 2021</strong></td>
+                            <td>Süper Lig</td>
+                            <td>6.</td>
+                            <td>Süper Lig'deki İlk Sezonda Üstün Başarı</td>
+                        </tr>
+                        <!-- Süreklilik için 2021-2022 Sezonu Eklendi -->
+                        <tr>
+                            <td><strong>2021 - 2022</strong></td>
+                            <td>Süper Lig</td>
+                            <td>12.</td>
+                            <td>Orta Sıralarda İstikrarlı Sezon</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2022 - 2023</strong></td>
+                            <td>Süper Lig</td>
+                            <td>-</td>
+                            <td class="text-danger">6 Şubat Depremi Nedeniyle Ligden Çekilme</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2023 - 2024</strong></td>
+                            <td>Süper Lig</td>
+                            <td>15.</td>
+                            <td class="text-success">Zorlu Sezonda Ligde Kalma Başarısı</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2024 - 2025</strong></td>
+                            <td>Süper Lig</td>
+                            <td>10.</td>
+                            <td>İstikrarlı Performans ile Orta Sıralar</td>
+                        </tr>
+                        <tr class="table-primary">
+                            <td><strong>2025 - 2026</strong></td>
+                            <td>Süper Lig</td>
+                            <td>Devam Ediyor</td>
+                            <td class="fw-bold">Üst Sıralar İçin Kıyasıya Mücadele</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 2. Tablo: Son Dönem Maç Sonuçları -->
+        <section class="bg-white p-4 rounded shadow-sm mb-5">
+            <h3 class="border-bottom pb-2 mb-4" style="color: #6c142c;">Son Dönem Önemli Maç Sonuçları</h3>
+            <p class="text-muted">2026 bahar döneminde takımımızın aldığı son maç skorları:</p>
+            
+            <div class="table-responsive">
+                <table class="table table-striped table-hover text-center align-middle">
+                    <thead style="background-color: #6c142c; color: white;">
+                        <tr>
+                            <th>Tarih</th>
+                            <th>Ev Sahibi</th>
+                            <th>Skor</th>
+                            <th>Deplasman</th>
+                            <th>Turnuva</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12 Nisan 2026</td>
+                            <td class="fw-bold">Hatayspor</td>
+                            <td><span class="badge bg-success fs-6">2 - 1</span></td>
+                            <td>Konyaspor</td>
+                            <td>Süper Lig</td>
+                        </tr>
+                        <tr>
+                            <td>05 Nisan 2026</td>
+                            <td>Antalyaspor</td>
+                            <td><span class="badge bg-secondary fs-6">1 - 1</span></td>
+                            <td class="fw-bold">Hatayspor</td>
+                            <td>Süper Lig</td>
+                        </tr>
+                        <tr>
+                            <td>28 Mart 2026</td>
+                            <td class="fw-bold">Hatayspor</td>
+                            <td><span class="badge bg-danger fs-6">0 - 2</span></td>
+                            <td>Galatasaray</td>
+                            <td>Süper Lig</td>
+                        </tr>
+                        <tr>
+                            <td>15 Mart 2026</td>
+                            <td>Kasımpaşa</td>
+                            <td><span class="badge bg-success fs-6">1 - 3</span></td>
+                            <td class="fw-bold">Hatayspor</td>
+                            <td>Süper Lig</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">&copy; <span id="guncelYil"></span> Betül Zehra Aksu - Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- Bootstrap JS ve Dinamik Yıl Scripti -->
+    <script>
+        document.getElementById("guncelYil").textContent = new Date().getFullYear();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özgeçmiş - Kişisel Web Sitem</title>
+    <!-- Bootstrap CSS (Tasarım ve responsive yapı için) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Üst Menü (Navbar) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Web Projesi</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Hakkında</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="cv.html">Özgeçmiş</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sehir.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="miras.html">Mirasımız</a></li>
+                    <li class="nav-item"><a class="nav-link" href="api.html">İlgi Alanlarım</a></li>
+                    <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary btn-sm ms-2" href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Ana İçerik Başlangıcı (Semantik 'main' etiketi) -->
+    <main class="container mt-5">
+        
+        <!-- CV Başlığı (Semantik 'header' etiketi) -->
+        <header class="semantic-header rounded mb-5 shadow-sm">
+            <h1 class="display-5 fw-bold">Betül Zehra Aksu</h1>
+            <p class="lead">Bilgisayar Mühendisliği Öğrencisi </p>
+        </header>
+
+        <div class="row">
+            <!-- Sol Kolon: Eğitim Bilgileri -->
+            <div class="col-md-6">
+                <!-- Eğitim Bölümü (Semantik 'section' etiketi) -->
+                <section class="cv-section h-100">
+                    <h2 class="mb-4 border-bottom pb-2">Eğitim Bilgileri</h2>
+                    
+                    <!-- Her bir okul için anlamsal 'article' etiketi kullanıyoruz -->
+                    <article class="mb-4">
+                        <h4 class="text-primary">Sakarya Üniversitesi</h4>
+                        <p class="mb-1 fw-bold">Bilgisayar Mühendisliği - 1. Sınıf</p>
+                        <p class="text-muted"><small>Şu an devam ediyor</small></p>
+                    </article>
+
+                    <article class="mb-4">
+                        <h4 class="text-primary">Paşa Karaca İmam Hatip Lisesi</h4>
+                        <p class="mb-1 fw-bold">Lise Eğitimi</p>
+                        <p class="text-muted"><small>Hatay</small></p>
+                    </article>
+
+                    <article class="mb-4">
+                        <h4 class="text-primary">Belen İmam Hatip Ortaokulu</h4>
+                        <p class="mb-1 fw-bold">Ortaokul Eğitimi</p>
+                        <p class="text-muted"><small>Hatay</small></p>
+                    </article>
+
+                    <article>
+                        <h4 class="text-primary">Atatürk İlkokulu</h4>
+                        <p class="mb-1 fw-bold">İlkokul ve Anaokulu Eğitimi</p>
+                        <p class="text-muted"><small>Hatay</small></p>
+                    </article>
+                </section>
+            </div>
+
+            <!-- Sağ Kolon: Deneyim ve Yetenekler -->
+            <div class="col-md-6">
+                <!-- Deneyim Bölümü (Semantik 'section' etiketi) -->
+                <section class="cv-section mb-4">
+                    <h2 class="mb-4 border-bottom pb-2">Deneyimler & Projeler</h2>
+                    
+                    <article class="mb-3">
+                        <h4 class="text-success">AnkaSEC Siber Güvenlik Topluluğu</h4>
+                        <p class="mb-1 fw-bold">Aktif Üye & Öğrenci</p>
+                        <ul class="text-muted mt-2">
+                            <li>Siber Güvenlik 201 eğitimlerine katılım.</li>
+                            <li>TryHackMe üzerinde uygulamalı laboratuvar (Wireshark, temel dinamik analiz) çalışmaları.</li>
+                            <li>Wazuh ile savunma izleme ve Windows yetki yükseltme araştırmaları.</li>
+                        </ul>
+                    </article>
+                    
+                    <article>
+                        <h4 class="text-success">Makine Öğrenmesi Çalışmaları</h4>
+                        <ul class="text-muted mt-2">
+                            <li>ClinVar veri seti kullanılarak genetik varyasyonların sınıflandırılması üzerine modelleme (XGBoost, Random Forest) araştırmaları.</li>
+                        </ul>
+                    </article>
+                </section>
+
+                <!-- Yetenekler Bölümü -->
+                <section class="cv-section">
+                    <h2 class="mb-3 border-bottom pb-2">Teknik Yetenekler</h2>
+                    <article>
+                        <ul class="list-unstyled">
+                            <li><strong>Programlama:</strong> C++, C#, HTML5, CSS3, JavaScript</li>
+                            <li><strong>Siber Güvenlik:</strong> TryHackMe, Wazuh</li>
+                            <li><strong>Veri Bilimi:</strong> Makine Öğrenmesi (Temel Düzey)</li>
+                        </ul>
+                    </article>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Sayfa Altı (Semantik 'footer' etiketi) -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p class="mb-0">&copy; 2024 Betül Zehra Aksu - Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- Bootstrap JS (Menü vb. etkileşimler için) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

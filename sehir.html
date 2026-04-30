@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şehrim: Hatay</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Üst Menü (Navbar) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Web Projesi</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Hakkında</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html">Özgeçmiş</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="sehir.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="miras.html">Takımımız</a></li>
+                    <li class="nav-item"><a class="nav-link" href="api.html">İlgi Alanlarım</a></li>
+                    <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary btn-sm ms-2" href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Ana İçerik -->
+    <main class="container mt-5">
+        <h1 class="text-center text-primary mb-3"> Hatay</h1>
+        
+        <div class="row mb-5">
+            <div class="col-md-10 mx-auto text-center">
+                <p class="lead">Hatay, binlerce yıllık tarihi, farklı kültürlerin bir arada yaşadığı hoşgörü ortamı ve eşsiz mutfağıyla Türkiye'nin en özel şehirlerinden biridir.</p>
+                <ul class="list-inline mt-4">
+                    <li class="list-inline-item badge bg-secondary fs-5 p-3 mb-2 shadow-sm">Nüfus: 1.577.531 Kişi</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 1. BÖLÜM: 4 RESİMLİ SLIDER (Mekanlar) -->
+        <div class="row mb-5">
+            <div class="col-md-10 mx-auto">
+                <h3 class="mb-3 border-bottom pb-2">Öne Çıkan Güzellikler</h3>
+                <div id="hataySlider" class="carousel slide" data-bs-ride="carousel">
+                    
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#hataySlider" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#hataySlider" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#hataySlider" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#hataySlider" data-bs-slide-to="3"></button>
+                    </div>
+
+                    <div class="carousel-inner rounded shadow">
+                        <div class="carousel-item active">
+                            <img src="ark-müzesijpg.jpg" class="d-block w-100" alt="Hatay Arkeoloji Müzesi" style="height: 500px; object-fit: cover;">
+                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                                <h5>Hatay Arkeoloji Müzesi</h5>
+                                <p>Dünyanın en büyük mozaik müzelerinden biri.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="harbiye-şelalesi.jpg" class="d-block w-100" alt="Harbiye Şelalesi" style="height: 500px; object-fit: cover;">
+                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                                <h5>Harbiye Şelalesi</h5>
+                                <p>Doğanın kalbinde ferahlatıcı bir mola noktası.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="iskenderun-sahil.jpg" class="d-block w-100" alt="İskenderun Sahili" style="height: 500px; object-fit: cover;">
+                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                                <h5>İskenderun Sahili</h5>
+                                <p>Maviyle yeşilin buluştuğu güzel sahil şeridimiz.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="payas-kales.jpg" class="d-block w-100" alt="Payas Kalesi" style="height: 500px; object-fit: cover;">
+                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                                <h5>Payas Kalesi</h5>
+                                <p>Tarihe tanıklık eden muazzam savunma yapısı.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#hataySlider" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Önceki</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#hataySlider" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Sonraki</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. BÖLÜM: YATAY KARTLARLA DETAYLI TANITIM -->
+        <div class="row mb-5">
+            <div class="col-md-10 mx-auto">
+                <h3 class="mb-4 border-bottom pb-2">Daha Fazla Keşfet</h3>
+
+                <div class="card mb-4 shadow-sm border-0">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-4">
+                            <img src="samandag-cevlik-sahili.jpg" class="img-fluid rounded-start w-100" alt="Çevlik Sahili" style="height: 250px; object-fit: cover;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title text-success">Samandağ Çevlik Sahili</h4>
+                                <p class="card-text">Türkiye'nin en uzun sahilidir. İnce kumu, deniz kaplumbağalarının (Caretta caretta) üreme alanı olması ve sörf rüzgarlarıyla doğaseverler için eşsiz bir destinasyondur.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm border-0">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-4">
+                            <img src="kanuni-cami.jpg" class="img-fluid rounded-start w-100" alt="Kanuni Camii" style="height: 250px; object-fit: cover;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title text-success">Kanuni Cami</h4>
+                                <p class="card-text">Kanuni Sultan Süleyman'ın emriyle 1553 yılında (Hicri 959), Mısır seferi sırasında yaptırılmıştır. Caminin hemen yanında yine Kanuni tarafından yaptırılan bir kervansaray ve bir hamam bulunmaktadır.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm border-0">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-4">
+                            <img src="musa-agaci.jpg" class="img-fluid rounded-start w-100" alt="Musa Ağacı" style="height: 250px; object-fit: cover;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title text-success">Musa Ağacı</h4>
+                                <p class="card-text">Bölgenin en önemli doğal ve dini sembollerinden biri olan devasa bir çınar ağacıdır. Halk arasında 2000-3000 yıllık olduğuna inanılır. Gövde çapı yaklaşık 7,5 metre, çevre genişliği 20 metre ve yüksekliği 17 metredir.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm border-0">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-4">
+                            <img src="habibi-neccar-cami.jpg" class="img-fluid rounded-start w-100" alt="Habibi Neccar Camii" style="height: 250px; object-fit: cover;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title text-success">Habibi Neccar Camii</h4>
+                                <p class="card-text">Anadolu sınırları içerisinde inşa edilen ilk cami olarak bilinir. Farklı inançlara sahip insanların bir arada huzurla yaşadığı Hatay'ın hoşgörü sembollerinden biridir.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm border-0">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-4">
+                            <img src="St._Pierre_Kilisesi.jpg" class="img-fluid rounded-start w-100" alt="St. Pierre Kilisesi" style="height: 250px; object-fit: cover;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title text-success">St. Pierre Kilisesi</h4>
+                                <p class="card-text">Hristiyanlık kelimesinin dünyada ilk kez kullanıldığı yer olarak kabul edilir. Tarihi dokusu ve manevi atmosferiyle inanç turizmi açısından önemli bir merkezdir.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm border-0">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-4">
+                            <img src="titus-tüneli.jpg" class="img-fluid rounded-start w-100" alt="Titus Tüneli" style="height: 250px; object-fit: cover;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title text-success">Titus Tüneli</h4>
+                                <p class="card-text">Roma İmparatoru Vespasian'ın emriyle sel sularını yönlendirmek için dağ oyularak yapılmıştır. Tamamen insan gücüyle inşa edilmiş antik bir mühendislik harikasıdır.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm border-0">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-4">
+                            <img src="uzun-çarşı.jpg" class="img-fluid rounded-start w-100" alt="Uzun Çarşı" style="height: 250px; object-fit: cover;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title text-success">Tarihi Uzun Çarşı</h4>
+                                <p class="card-text">Antakya'nın kalbi sayılan bu tarihi çarşıda yöresel ürünler satılır. Nostaljik atmosferiyle ziyaretçilerini asırlar öncesine götürür.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4 shadow-sm border-0">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-4">
+                            <img src="vakıflı-köyü.jpg" class="img-fluid rounded-start w-100" alt="Vakıflı Köyü" style="height: 250px; object-fit: cover;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title text-success">Vakıflı Köyü</h4>
+                                <p class="card-text">Musa Dağı eteklerinde yer alan, organik tarımı ve kültürel dokusunu koruyan şirin bir yerleşim yeridir.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. BÖLÜM: YEMEK KÜLTÜRÜ -->
+        <div class="row mb-5 bg-white p-4 rounded shadow-sm">
+            <div class="col-md-10 mx-auto">
+                <h3 class="mb-4 border-bottom pb-2 text-danger">Eşsiz Yemek Kültürü</h3>
+                
+                <div class="row align-items-center">
+                    <div class="col-md-5 mb-4 mb-md-0">
+                        <p style="font-size: 1.1rem; line-height: 1.8;">
+                            UNESCO tescilli "Gastronomi Şehri" unvanına sahip, zeytinyağı, nar ekşisi, biber salçası ve baharatların yoğun kullanıldığı 600'den fazla çeşit barındıran zengin bir mutfaktır. Kağıt kebabı, oruk, humus, cevizli biber, künefe ve biberli ekmek gibi lezzetlerle öne çıkan bu kültürde mezeler ve et yemekleri bir arada sunulur, meze çeşitleri çoktur. Bu zengin mutfak, Akdeniz ve Ortadoğu kültürlerinin birleşimiyle benzersiz bir lezzet yelpazesi sunar.
+                        </p>
+                    </div>
+
+                    <div class="col-md-7">
+                        <div id="yemekSlider" class="carousel slide" data-bs-ride="carousel">
+                            
+                            <!-- Gösterge (Indicator) Sayısı 6'ya Çıkarıldı -->
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#yemekSlider" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#yemekSlider" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#yemekSlider" data-bs-slide-to="2"></button>
+                                <button type="button" data-bs-target="#yemekSlider" data-bs-slide-to="3"></button>
+                                <button type="button" data-bs-target="#yemekSlider" data-bs-slide-to="4"></button>
+                                <!-- Yeni Eklenen 6. Buton (Affan Kahvesi için) -->
+                                <button type="button" data-bs-target="#yemekSlider" data-bs-slide-to="5"></button>
+                            </div>
+
+                            <div class="carousel-inner rounded shadow">
+                                <div class="carousel-item active">
+                                    <img src="tepsi-kebabi.jpg" class="d-block w-100" alt="Tepsi Kebabı" style="height: 400px; object-fit: cover;">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="kunefe.jpg" class="d-block w-100" alt="Künefe" style="height: 400px; object-fit: cover;">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="kombe.jpg" class="d-block w-100" alt="Kömbe" style="height: 400px; object-fit: cover;">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="hatay-sofrasi.jpg" class="d-block w-100" alt="Hatay Sofrası" style="height: 400px; object-fit: cover;">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="yemek.jpg" class="d-block w-100" alt="Yöresel Yemek" style="height: 400px; object-fit: cover;">
+                                </div>
+                                <!-- Yeni Eklenen 6. Resim: Affan Kahvesi -->
+                                <div class="carousel-item">
+                                    <img src="affan-kahvesi.jpg" class="d-block w-100" alt="Tarihi Affan Kahvesi" style="height: 400px; object-fit: cover;">
+                                </div>
+                            </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#yemekSlider" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Önceki</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#yemekSlider" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Sonraki</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">&copy; <span id="guncelYil"></span> Betül Zehra Aksu - Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- Bootstrap JS ve Dinamik Yıl Scripti -->
+    <script>
+        document.getElementById("guncelYil").textContent = new Date().getFullYear();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
