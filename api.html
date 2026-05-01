@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İlgi Alanlarım</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+    <!-- Üst Menü (Navbar) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Web Projesi</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Hakkında</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html">Özgeçmiş</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sehir.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="miras.html">Takımımız</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="api.html">İlgi Alanlarım</a></li>
+                    <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary btn-sm ms-2" href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Ana İçerik -->
+    <main class="container mt-5 mb-5">
+        
+        <!-- 1. BÖLÜM: API İLE ÇEKİLEN DİZİLER -->
+        <header class="text-center mb-5">
+            <h1 class="display-5 fw-bold" style="color: #6c142c;">Favori Dizilerim</h1>
+            <p class="lead text-muted">Aşağıdaki veriler JavaScript Fetch API ile TVMaze sunucularından dinamik olarak çekilmektedir.</p>
+        </header>
+
+        <div class="row row-cols-2 row-cols-md-5 g-4 mb-5" id="diziKutusu">
+            <div class="text-center w-100" id="yukleniyorMesaji">
+                <div class="spinner-border text-danger" role="status"></div>
+                <p class="mt-2">Dizi verileri sunucudan getiriliyor...</p>
+            </div>
+        </div>
+
+        <hr class="mb-5">
+
+        <!-- 2. BÖLÜM: YEREL VERİ İLE KİTAP ÖNERİLERİ -->
+        <header class="text-center mb-5">
+            <h2 class="fw-bold text-success">Kitap Önerilerim</h2>
+            <p class="text-muted">Okumaktan keyif aldığım ve başucu kitabım olan bazı değerli eserler.</p>
+        </header>
+
+        <div class="row row-cols-2 row-cols-md-4 g-4 justify-content-center mb-5" id="kitapKutusu">
+            <!-- JavaScript kitap verilerini buraya dolduracak -->
+        </div>
+
+        <hr class="mb-5">
+
+        <!-- 3. BÖLÜM: TEKNİK İLGİ ALANLARI -->
+        <header class="text-center mb-5">
+            <h2 class="fw-bold text-primary">Mühendislik İlgi Alanlarım</h2>
+            <p class="text-muted">Boş zamanlarımda kendimi geliştirmekten keyif aldığım teknik alanlar.</p>
+        </header>
+
+        <div class="row mb-5">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <h4 class="card-title text-danger mb-3">Siber Güvenlik</h4>
+                        <p class="card-text text-muted">Ağ trafiği analizi, SOC izleme süreçleri ve sızma testleri üzerine çalışmalar yürütmekten, sistem zafiyetlerini keşfedip önlemler almaktan büyük keyif alıyorum.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <h4 class="card-title text-success mb-3">Makine Öğrenmesi</h4>
+                        <p class="card-text text-muted">Büyük veri setlerini işlemek, verileri ön işleme adımlarından geçirmek ve makine öğrenmesi algoritmaları kurarak sınıflandırma modelleri eğitmek en büyük tutkularımdan biri.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <h4 class="card-title text-info mb-3">Yazılım & OOP</h4>
+                        <p class="card-text text-muted">C++ ve C# gibi dillerde Nesne Yönelimli Programlama (OOP) prensiplerini kullanarak sistemin arka planındaki düşük seviyeli mimariyi anlamak ve kodlamak üzerine pratikler yapıyorum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-auto">
+        <p class="mb-0">&copy; <span id="guncelYil"></span> Betül Zehra Aksu - Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- Bootstrap JS ve Dinamik Yıl Scripti -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>document.getElementById("guncelYil").textContent = new Date().getFullYear();</script>
+
+    <!-- API ENTEGRASYONU VE YEREL VERİ KODLARI -->
+    <script>
+        // --- 1. DİZİLER KODLARI ---
+        const favoriDiziler = [
+            'Prison Break', 'Suits', 'Peaky Blinders', "The Queen's Gambit", 
+            'Supernatural', 'The Walking Dead', 'The 100', 'Business Proposal', 
+            'Baba Candır', 'The Last of Us'
+        ];
+        
+        const diziKutusu = document.getElementById('diziKutusu');
+        const yukleniyorMesaji = document.getElementById('yukleniyorMesaji');
+
+        function dizileriGetir() {
+            favoriDiziler.forEach(isim => {
+                fetch(`https://api.tvmaze.com/singlesearch/shows?q=${isim}`)
+                    .then(cevap => {
+                        if (cevap.status === 404) return null;
+                        return cevap.json();
+                    })
+                    .then(veri => {
+                        if (veri) {
+                            yukleniyorMesaji.style.display = 'none';
+
+                            let baslik = veri.name;
+                            let resimUrl = veri.image ? veri.image.medium : 'https://via.placeholder.com/210x295?text=Resim+Yok';
+                            let tur = veri.genres && veri.genres.length > 0 ? veri.genres.join(', ') : 'Belirtilmemiş';
+                            let imdb = veri.rating && veri.rating.average ? veri.rating.average : '-';
+                            let link = veri.url;
+
+                            if (baslik === 'Prison Break') {
+                                resimUrl = 'prison-afis.jpg'; 
+                            }
+
+                            diziKutusu.innerHTML += `
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <img src="${resimUrl}" class="card-img-top" alt="${baslik}">
+                                        <div class="card-body d-flex flex-column text-center">
+                                            <h6 class="card-title fw-bold" style="color: #6c142c;">${baslik}</h6>
+                                            <p class="card-text mb-1" style="font-size: 0.8rem;"><span class="text-muted">${tur}</span></p>
+                                            <p class="card-text mb-3" style="font-size: 0.85rem;"><span class="badge bg-success">IMDB: ${imdb}</span></p>
+                                            <a href="${link}" target="_blank" class="btn btn-outline-dark btn-sm w-100 mt-auto">İncele</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    })
+                    .catch(hata => console.error("Bağlantı hatası:", hata));
+            });
+        }
+
+        // --- 2. KİTAPLAR KODLARI (GÖRSEL DÜZELTMELERİ YAPILDI) ---
+        const kitapListesi = [
+            { ad: "Kürk Mantolu Madonna", yazar: "Sabahattin Ali", resim: "kurk-mantolu.jpg" },
+            { ad: "Toprak Ana", yazar: "Cengiz Aytmatov", resim: "toprak-ana.jpg" },
+            { ad: "Satranç", yazar: "Stefan Zweig", resim: "satranc.jpg" },
+            { ad: "İncir Kuşları", yazar: "Sinan Akyüz", resim: "incir-kuslari.jpg" },
+            { ad: "Beyaz Zambaklar Ülkesinde", yazar: "Grigory Petrov", resim: "beyaz-zambaklar.jpg" },
+            { ad: "Dokuzuncu Hariciye Koğuşu", yazar: "Peyami Safa", resim: "dokuzuncu-hariciye.jpg" },
+            { ad: "Yedi Kadranın Gizemi", yazar: "Agatha Christie", resim: "yedi-kadran.jpg" }
+        ];
+
+        const kitapKutusu = document.getElementById('kitapKutusu');
+
+        function kitaplariGetir() {
+            kitapListesi.forEach(kitap => {
+                // DÜZELTME: img etiketine 'object-fit: contain;', 'p-3' ve 'bg-light' eklendi.
+                kitapKutusu.innerHTML += `
+                    <div class="col">
+                        <div class="card h-100 shadow-sm border-0">
+                            <img src="${kitap.resim}" class="card-img-top p-3 bg-light" alt="${kitap.ad}" style="height: 300px; object-fit: contain;">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h6 class="card-title fw-bold text-success">${kitap.ad}</h6>
+                                <p class="card-text mb-3" style="font-size: 0.85rem;"><span class="text-muted">${kitap.yazar}</span></p>
+                                <button class="btn btn-outline-success btn-sm w-100 mt-auto">Detay</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        dizileriGetir();
+        kitaplariGetir();
+    </script>
+</body>
+</html>
