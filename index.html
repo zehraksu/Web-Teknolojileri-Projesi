@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hakkında - Kişisel Web Sitem</title>
-    <!-- Bootstrap CSS (Tasarım için gerekli kütüphane) -->
+    <title>Hakkında - Web Projesi</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Üst Menü (Navbar) -->
+<body class="bg-light d-flex flex-column min-vh-100">
+    <!-- Üst Menü -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="index.html">Web Projesi</a>
@@ -18,7 +18,7 @@
                     <li class="nav-item"><a class="nav-link active" href="index.html">Hakkında</a></li>
                     <li class="nav-item"><a class="nav-link" href="cv.html">Özgeçmiş</a></li>
                     <li class="nav-item"><a class="nav-link" href="sehir.html">Şehrim</a></li>
-                    <li class="nav-item"><a class="nav-link" href="miras.html">Mirasımız</a></li>
+                    <li class="nav-item"><a class="nav-link" href="miras.html">Takımımız</a></li>
                     <li class="nav-item"><a class="nav-link" href="api.html">İlgi Alanlarım</a></li>
                     <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
                     <li class="nav-item"><a class="nav-link btn btn-primary btn-sm ms-2" href="login.html">Login</a></li>
@@ -27,34 +27,67 @@
         </div>
     </nav>
 
-    <!-- Ana İçerik Alanı -->
-    <div class="container mt-5">
-        <div class="row">
-            <!-- Sol Taraf: Yazılar -->
-            <div class="col-md-8">
-                <h1>Merhaba, Ben Betül Zehra Aksu</h1>
-                <p>Sakarya Üniversitesi Bilgisayar Mühendisliği 1. sınıf öğrencisiyim. Web teknolojilerine ve yazılım geliştirmeye büyük ilgi duyuyorum.</p>
-                
-                <h3 class="mt-4">Hobilerim ve Aktivitelerim</h3>
-                <!-- Sırasız Liste (Unordered List) -->
-                <ul>
-                    <li>Doğa yürüyüşü yapmak</li>
-                    <li>Film izlemek (<a href="api.html">Film önerilerimi gör</a>)</li>
-                    <li>Kitap okumak</li>
-                    <li>Seyahat etmek ve yeni yerler keşfetmek</li>
-                    <li>Bisiklet sürmek</li>
-                    <li>Arkadaşlarımla vakit geçirmek</li>
-                    <li>Spor yapmak</li>
-                </ul>
-            </div>
+    <!-- Ana İçerik: Hakkında Sayfası -->
+    <main class="container mt-5 mb-5 flex-grow-1">
+        <div class="row align-items-center">
             
-            <!-- Sağ Taraf: Profil Resmi -->
-            <div class="col-md-4 text-center">
-                <!-- Resim Etiketi -->
-                <img src="benim-resmim.jpg" class="img-fluid rounded shadow" alt="Profil Resmim">
-                <p class="text-muted mt-2"><small>Kişisel fotoğrafım</small></p>
+            <!-- Sol Sütun: Yazılar, Hobiler ve Bağlantılar -->
+            <div class="col-md-6 mb-4">
+                <h1 class="display-4 fw-bold text-primary mb-3">Merhaba, Ben Betül Zehra Aksu</h1>
+                <p class="lead text-muted">Sakarya Üniversitesi'nde Bilgisayar Mühendisliği 1. sınıf öğrencisiyim.</p>
+                
+                <h4 class="mt-4 text-dark fw-bold">Hobilerim ve Etkinlikler</h4>
+                <ul class="list-group list-group-flush mb-4 shadow-sm">
+                   
+                    <li class="list-group-item bg-transparent">🏃‍♀️ Spor ve doğada yürüyüş yapmak.</li>
+                    <li class="list-group-item bg-transparent">🎬 Film ve dizi izlemek.</li>
+                    <li class="list-group-item bg-transparent">☕ Arkadaşlarımla takılmak ve sosyalleşmek.</li>
+                    <li class="list-group-item bg-transparent">📚 Kitap okumak.</li>
+                    <li class="list-group-item bg-transparent">🎸 Gitar çalmak.</li>
+                    <li class="list-group-item bg-transparent">📸 Fotoğraf çekmek.</li>
+                </ul>
+
+                <!-- BAĞLANTILAR -->
+                <h4 class="text-dark fw-bold mb-3">Bana Ulaşın</h4>
+                <div>
+                    <a href="https://www.instagram.com/_btlzehra_/" target="_blank" class="btn btn-outline-danger px-4 py-2 fw-bold shadow-sm">
+                        Instagram Profilim
+                    </a>
+                    <a href="https://github.com/zehraksu" target="_blank" class="btn btn-outline-dark px-4 py-2 fw-bold shadow-sm ms-2">
+                        GitHub Hesabım
+                    </a>
+                </div>
             </div>
+
+            <!-- Sağ Sütun: Medya (Resim ve Video) -->
+            <div class="col-md-6">
+                <!-- MEDYA 1: Resim  -->
+                <div class="mb-5 text-center">
+                    <!-- w-50 sınıfı resmi küçültür, mx-auto ortalar -->
+                    <img src="profil.jpg" alt="Betül Zehra" class="img-fluid rounded-4 shadow w-50 mx-auto d-block" onerror="this.src='https://via.placeholder.com/600x400?text=Fotograf+Bulunamadi'">
+                    <p class="text-muted mt-2" style="font-size: 0.85rem;">Profil Fotoğrafım</p>
+                </div>
+                
+                <!-- MEDYA 2: Video (Favori Şarkı) -->
+                <div class="shadow rounded-4 overflow-hidden">
+                    <div class="ratio ratio-16x9">
+                        
+                        <iframe src="https://www.youtube.com/embed/WNEAiN5CODU" title="Sertab Erener - İncelikler" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <p class="text-muted mt-2 text-center fw-bold" style="font-size: 0.85rem;">🎧 Favori Şarkım: Sertab Erener - İncelikler</p>
+            </div>
+
         </div>
-    </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-auto">
+        <p class="mb-0">&copy; <span id="guncelYil"></span> Betül Zehra Aksu - Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>document.getElementById("guncelYil").textContent = new Date().getFullYear();</script>
 </body>
 </html>
