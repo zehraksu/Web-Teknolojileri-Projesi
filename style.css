@@ -199,3 +199,46 @@ body {
     50% { transform: translateY(-30px) scale(1.05); }
     100% { transform: translateY(0px) scale(1); }
 }
+/* --- MOBİL UYUMLULUK (RESPONSIVE TASARIM) VE EKRAN OYNAMASI ÇÖZÜMÜ --- */
+
+/* 1. Kesin Yatay Taşma Engeli (Ekranın sağa-sola oynamasını durdurur) */
+html, body {
+    overflow-x: hidden !important; 
+    width: 100%;
+    max-width: 100vw;
+}
+
+/* 2. Telefon Ekranları İçin Özel Ayarlar (Maksimum 768px genişlik) */
+@media (max-width: 768px) {
+    
+    /* Ana başlık telefonda çok büyük olup ekranı taşırmasın diye küçültüyoruz */
+    .hero-title {
+        font-size: 3.5rem !important;
+        letter-spacing: 0; /* Dar ekranda harf aralığını sıfırlıyoruz */
+    }
+
+    /* Alt Başlık küçültmesi */
+    .display-5 {
+        font-size: 2rem !important;
+    }
+
+    /* Arka plandaki devasa şekillerin telefonda ekranı bozmaması için boyutları küçültüldü */
+    .shape-1 { width: 250px; height: 250px; top: -50px; left: -50px; }
+    .shape-2 { width: 120px; height: 120px; right: -20px; }
+    .shape-3 { width: 180px; height: 180px; bottom: 5%; left: -20px; }
+
+    /* Alt Kısımdaki Dalga (Wave) yüksekliğini telefon ekranına uyumlu hale getirme */
+    .wave-container svg {
+        height: 60px;
+    }
+
+    /* Profil resminin telefonda çok fazla yer kaplamaması için ayar */
+    .col-md-6 img {
+        width: 90% !important;
+    }
+
+    /* Müzik kutusunun diğer elemanlarla arasına telefonda rahat bir boşluk bırakma */
+    .music-player-box {
+        margin-top: 2rem;
+    }
+}
