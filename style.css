@@ -242,3 +242,92 @@ html, body {
         margin-top: 2rem;
     }
 }
+/* =========================================
+   ÖZGEÇMİŞ (CV) SAYFASI ÖZEL TASARIMLARI
+   ========================================= */
+
+/* 1. Kırmızı Alan Çözümü: CV Başlık Banner'ı */
+.cv-hero-section {
+    background: linear-gradient(135deg, var(--ana-renk) 0%, #1565C0 100%);
+    border-bottom: 5px solid var(--vurgu-renk);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* 2. Mavi Alan Çözümü: Zaman Çizelgesi (Timeline) Ana Kapsayıcı */
+.timeline {
+    position: relative;
+    padding-left: 40px; /* Çizgi ve ikon için soldan boşluk */
+}
+
+/* Dikine İlerleyen İnce Çizgi */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px; /* Çizginin soldan konumu */
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: #E0E0E0; /* Açık gri şık bir çizgi */
+    border-radius: 3px;
+}
+
+/* Her Bir Zaman Çizelgesi Kutusu */
+.timeline-item {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+/* Çizgi Üzerindeki İkonların Yuvarlak Tasarımı */
+.timeline-icon {
+    position: absolute;
+    left: -40px; /* Kutudan dışarı, tam çizginin üstüne taşıyoruz */
+    top: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: var(--vurgu-renk); /* Turuncu ikon arka planı */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    box-shadow: 0 0 0 4px white; /* İkonun etrafına beyaz boşluk (nefes alma) efekti */
+    z-index: 1; /* Çizginin üstünde görünmesi için */
+}
+
+/* Timeline İçerik Kartı Efektleri */
+.timeline-content {
+    border-left: 3px solid transparent;
+    transition: all var(--gecis-hizi);
+}
+
+/* Kartın üzerine gelince enerjik mavi renkle sol tarafı aydınlatma */
+.timeline-content:hover {
+    border-left: 3px solid var(--ana-renk);
+    transform: translateX(5px); /* Hafif sağa kayma efekti */
+}
+/* --- PROJE KURALI GEREĞİ HTML'DEN TAŞINAN SATIR DIŞI STİLLER --- */
+
+.custom-text-primary { color: var(--ana-renk) !important; }
+.custom-text-accent { color: var(--vurgu-renk) !important; }
+.custom-text-dark { color: var(--metin-renk) !important; }
+
+.custom-bg-primary { background-color: var(--ana-renk) !important; }
+.custom-bg-accent { background-color: var(--vurgu-renk) !important; }
+
+.timeline-list { font-size: 0.9rem; }
+.skill-heading { font-size: 1.1rem; }
+.custom-footer { background-color: var(--arka-plan); }
+
+/* Özel hap (pill) etiket tasarımları */
+.custom-pill-primary {
+    background-color: rgba(30, 136, 229, 0.1) !important; 
+    color: var(--ana-renk) !important; 
+    border: 1px solid var(--ana-renk) !important;
+}
+
+.custom-pill-accent {
+    background-color: rgba(255, 140, 0, 0.1) !important; 
+    color: var(--vurgu-renk) !important; 
+    border: 1px solid var(--vurgu-renk) !important;
+}
