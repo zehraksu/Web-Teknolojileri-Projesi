@@ -17,11 +17,18 @@
 </head>
 <body>
 
- <!-- Üst Menü (Tüm Sayfalarla Aynı) -->
+ <!-- Üst Menü (Tüm Sayfalarla Aynı - Mobil Buton Eklendi) -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">Web Projesi</a>
-            <div class="collapse navbar-collapse">
+            
+            <!-- MOBİL EKRANLAR İÇİN EKLENEN HAMBURGER BUTONU -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobilMenu" aria-controls="mobilMenu" aria-expanded="false" aria-label="Menüyü Aç">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- id="mobilMenu" EKLENEREK BUTON İLE BAĞLANTISI SAĞLANDI -->
+            <div class="collapse navbar-collapse" id="mobilMenu">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="index.html">Hakkında</a></li>
                     <li class="nav-item"><a class="nav-link" href="cv.html">Özgeçmiş</a></li>
