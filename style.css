@@ -367,11 +367,13 @@ html, body {
 }
 
 /* 2. Slider Fotoğrafları Düzeltmesi (Resimlerin tam sığması için) */
+/* Slider Fotoğrafları: Çerçeveyi tam dolduracak şekilde ayarlandı */
 .custom-slider-img {
     width: 100%;
     height: 500px;
-    object-fit: contain; /* YENİ: Resmi kesinlikle kesmez, tamamını kutuya sığdırır */
-    background-color: #e9ecef; /* Kenarlarda boşluk kalırsa şık, açık gri bir renk görünür */
+    object-fit: cover; /* YENİ: Çerçeveyi boşluksuz tam doldurur, fotoğrafı sündürmez */
+    object-position: center; /* YENİ: Dikey fotolarda kırpma yaparken tam orta noktayı merkeze alır */
+    background-color: #e9ecef;
 }
 
 /* Alt alta dizdiğimiz Tarih ve Yemek listelerindeki fotoğrafların ayarı */

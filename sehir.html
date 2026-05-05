@@ -37,7 +37,7 @@
         <div class="hero-overlay"></div>
         <div class="container position-relative z-1 py-5">
             <div class="text-center mb-5 mt-4">
-                <h1 class="display-4 fw-bold text-white mb-3">Güzel Memleketim: Hatay</h1>
+                <h1 class="display-4 fw-bold text-white mb-3"> Hatay</h1>
                 <p class="lead text-white-50 mx-auto max-w-800">
                     Hatay, binlerce yıllık tarihi, farklı kültürlerin bir arada yaşadığı hoşgörü ortamı ve eşsiz mutfağıyla Türkiye'nin en özel şehirlerinden biridir.
                 </p>
@@ -50,7 +50,7 @@
                             <i class="fas fa-quote-left position-absolute top-0 start-0 mt-4 ms-4 custom-quote-icon"></i>
                             <div class="position-relative z-1 ms-md-3">
                                 <h5 class="fw-bold mb-3 d-flex align-items-center custom-text-accent">
-                                    <i class="fas fa-map-marked-alt me-2"></i> Bir Keşif Notu
+                                    <i class="fas fa-map-marked-alt me-2"></i> 
                                 </h5>
                                 <p class="fs-5 lh-lg mb-0 text-dark fw-light">
                                     Şehrimizin gezilecek yerleri saymakla bitmez! Gelip bizzat gezerseniz, <strong>yaklaşık 1.577.531 kişilik nüfusuyla</strong> daima canlı ve dinamik kalan bu şehrin gizli kalmış tarihi mekanlarını keşfedebilir, eşsiz lezzetlerimizi yerinde tadabilirsiniz.
@@ -66,20 +66,29 @@
     <main class="container py-5 flex-grow-1">
         
         <!-- 2. BÖLÜM: 4 Resimli Zorunlu Slider -->
+       <!-- 2. BÖLÜM: Genişletilmiş Slider (7 Resimli) -->
         <section class="mb-5 pb-4 border-bottom">
             <h2 class="fw-bold mb-4 text-center custom-text-primary">Hatay'dan Kareler</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div id="hataySlider" class="carousel slide shadow-lg rounded-4 overflow-hidden" data-bs-ride="carousel">
+                        
+                        <!-- Slider Altındaki Minik Çizgiler (İndikatörler) -->
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#hataySlider" data-bs-slide-to="0" class="active"></button>
                             <button type="button" data-bs-target="#hataySlider" data-bs-slide-to="1"></button>
                             <button type="button" data-bs-target="#hataySlider" data-bs-slide-to="2"></button>
                             <button type="button" data-bs-target="#hataySlider" data-bs-slide-to="3"></button>
+                            <!-- YENİ EKLENEN İNDİKATÖRLER -->
+                            <button type="button" data-bs-target="#hataySlider" data-bs-slide-to="4"></button>
+                            <button type="button" data-bs-target="#hataySlider" data-bs-slide-to="5"></button>
+                            <button type="button" data-bs-target="#hataySlider" data-bs-slide-to="6"></button>
                         </div>
+
+                        <!-- Slider İçindeki 7 Resim -->
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="ars-sokak.jpg" class="d-block w-100 custom-slider-img" alt="Eski Antakya Sokakları">
+                                <img src="arsuz.jpg" class="d-block w-100 custom-slider-img" alt="Arsuz Sahili">
                             </div>
                             <div class="carousel-item">
                                 <img src="harbiye-şelalesi.jpg" class="d-block w-100 custom-slider-img" alt="Harbiye Şelalesi">
@@ -90,7 +99,19 @@
                             <div class="carousel-item">
                                 <img src="hatay-sofrasi.jpg" class="d-block w-100 custom-slider-img" alt="Hatay Sofrası">
                             </div>
+                            <!-- YENİ EKLENEN FOTOĞRAFLAR -->
+                            <div class="carousel-item">
+                                <img src="manastır.jpg" class="d-block w-100 custom-slider-img" alt="Tarihi Manastır">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="uu-cami.jpg" class="d-block w-100 custom-slider-img" alt="Ulu Cami">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="meze.jpg" class="d-block w-100 custom-slider-img" alt="Hatay Mezeleri">
+                            </div>
                         </div>
+
+                        <!-- İleri / Geri Butonları -->
                         <button class="carousel-control-prev" type="button" data-bs-target="#hataySlider" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         </button>
@@ -101,7 +122,6 @@
                 </div>
             </div>
         </section>
-
         <!-- 3. BÖLÜM: TARİHİ YERLER (Zenginleştirilmiş Liste) -->
         <section class="mb-5">
             <h2 class="fw-bold mb-5 text-center custom-text-primary"><i class="fas fa-landmark me-2"></i> Tarihin İzinde</h2>
@@ -179,7 +199,7 @@
                 </div>
                 <div class="col-md-7 ps-md-4">
                     <h4 class="fw-bold custom-text-dark">Samandağ Çevlik Sahili</h4>
-                    <p class="text-muted lh-lg">Dünyanın en uzun kumsallarından birine sahip olan Samandağ Sahili, hem deniz turizmi hem de incecik kumuyla nesli tükenmekte olan Caretta Caretta deniz kaplumbağalarının üreme alanlarından biridir.</p>
+                    <p class="text-muted lh-lg">Dünyanın en uzun 2. kumsalı olan Samandağ Sahili, hem deniz turizmi hem de incecik kumuyla nesli tükenmekte olan Caretta Caretta deniz kaplumbağalarının üreme alanlarından biridir.</p>
                 </div>
             </div>
 
@@ -194,6 +214,7 @@
                 </div>
             </div>
 
+
             <!-- Uzun Çarşı (Solda) -->
             <div class="row align-items-center mb-5">
                 <div class="col-md-5 mb-4 mb-md-0">
@@ -204,55 +225,123 @@
                     <p class="text-muted lh-lg">Antakya'nın kalbinin attığı yer! Baharat kokularının birbirine karıştığı, dar sokaklarında kaybolmanın bile keyifli olduğu bu tarihi çarşı şehrin ticaret merkezidir.</p>
                 </div>
             </div>
+
+            <!-- Antakya Katolik Kilisesi (Sağda) -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-7 pe-md-4 order-2 order-md-1">
+                    <h4 class="fw-bold custom-text-dark">Antakya Katolik Kilisesi</h4>
+                    <p class="text-muted lh-lg">Antakya Türk Katolik Kilisesi, şehrin tarihi Kurtuluş Caddesi üzerinde yer alan ve 19. yüzyılda Sultan Abdülmecid’in izniyle inşa edilen köklü bir ibadethanedir. İki eski Antakya evinin birleşimiyle oluşan mimarisi, geleneksel taş işçiliği ve huzurlu avlusuyla dikkat çeker. "Hoşgörü Üçgeni"nin önemli bir parçası olan kilise, günümüzde halen aktif olarak hizmet vermektedir.</p>
+                </div>
+                <div class="col-md-5 mb-4 mb-md-0 order-1 order-md-2">
+                    <!-- Dosya adının 'Katolik-Kilisesi.jpg' olduğundan emin ol -->
+                    <img src="Katolik-Kilisesi.jpg" class="img-fluid rounded-4 shadow-sm custom-list-img" alt="Katolik Kilisesi">
+                </div>
+            </div>
+
+            <!-- İssos Antik Kenti (Solda) -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-5 mb-4 mb-md-0">
+                    <!-- Dosya adının 'issos-antik.jpg' olduğundan emin ol -->
+                    <img src="issos-antik.jpg" class="img-fluid rounded-4 shadow-sm custom-list-img" alt="İssos Antik Kenti">
+                </div>
+                <div class="col-md-7 ps-md-4">
+                    <h4 class="fw-bold custom-text-dark">İssos Antik Kenti (Epiphaneia)</h4>
+                    <p class="text-muted lh-lg">Büyük İskender ile Pers İmparatoru Darius'un o destansı savaşına sahne olan, tarihin akışını değiştiren topraklara ayak basmaya hazır mısınız? Erzin ilçesindeki gizlenmiş bu antik kentte gezerken, asırlık su kemerleri ve binlerce yıllık mozaikler arasında adeta zamanda yolculuk yapacak, o eski görkemli çağların heyecan verici fısıltılarını duyacaksınız.</p>
+                </div>
+            </div>
+
+            <div class="row align-items-center mb-5">
+                <div class="col-md-7 pe-md-4 order-2 order-md-1">
+                    <h4 class="fw-bold custom-text-dark">Eski Arsuz Sokakları</h4>
+                    <p class="text-muted lh-lg">Begonvillerle süslenmiş tarihi taş evlerin arasından süzülen daracık Arsuz sokaklarında yürümek, adeta bir masalın içinde kaybolmak gibidir. Eski dokusunu hiç kaybetmemiş bu sevimli sahil kasabasında denizin iyot kokusu ve o sıcacık Akdeniz rüzgarı yüzünüze vururken, buradan hiç ama hiç ayrılmak istemeyeceksiniz.</p>
+                </div>
+                <div class="col-md-5 mb-4 mb-md-0 order-1 order-md-2">
+                    <img src="ars-sokak.jpg" class="img-fluid rounded-4 shadow-sm custom-list-img" alt="Eski Arsuz Sokakları">
+                </div>
+            </div>
         </section>
 
-        <!-- 4. BÖLÜM: YEMEK KÜLTÜRÜ -->
+      <!-- 4. BÖLÜM: YEMEK KÜLTÜRÜ -->
         <section class="mt-5 pt-4 border-top">
             <h2 class="fw-bold mb-5 text-center custom-text-accent"><i class="fas fa-utensils me-2"></i> UNESCO Onaylı Lezzetler</h2>
 
-            <!-- Künefe (Sağda) -->
+            <!-- 1. Künefe (Resim Sağda) -->
             <div class="row align-items-center mb-5">
                 <div class="col-md-7 pe-md-4 order-2 order-md-1">
                     <h4 class="fw-bold custom-text-dark">Hatay Künefesi</h4>
-                    <p class="text-muted lh-lg">Tel kadayıfın, tuzsuz peynirle buluşup bakır tepsilerde kızardığı efsanevi tatlı. Hatay mutfağının tüm dünyada bilinen en tatlı gururudur.</p>
+                    <p class="text-muted lh-lg">Tel kadayıfın, Hatay'a özgü o eşsiz tuzsuz peynirle buluşup bakır tepsilerde ağır ağır kızardığı efsanevi tatlı. Üzerine dökülen sıcak şerbeti ve uzadıkça uzayan peyniriyle, Hatay mutfağının tüm dünyada bilinen en tatlı gururudur.</p>
                 </div>
                 <div class="col-md-5 mb-4 mb-md-0 order-1 order-md-2">
                     <img src="kunefe.jpg" class="img-fluid rounded-4 shadow-sm custom-list-img" alt="Künefe">
                 </div>
             </div>
 
-            <!-- Tepsi Kebabı (Solda) -->
+            <!-- 2. Tepsi Kebabı (Resim Solda) -->
             <div class="row align-items-center mb-5">
                 <div class="col-md-5 mb-4 mb-md-0">
                     <img src="tepsi-kebabi.jpg" class="img-fluid rounded-4 shadow-sm custom-list-img" alt="Tepsi Kebabı">
                 </div>
                 <div class="col-md-7 ps-md-4">
                     <h4 class="fw-bold custom-text-dark">Tepsi Kebabı</h4>
-                    <p class="text-muted lh-lg">Kıymanın sarımsak, maydanoz ve baharatlarla yoğrulup taş fırınlarda odun ateşinde pişirildiği bir lezzet şöleni.</p>
+                    <p class="text-muted lh-lg">Satırla çekilmiş kıymanın sarımsak, maydanoz ve baharatlarla yoğrulup tepsiye basıldığı, ardından taş fırınlarda odun ateşinde pişirildiği bir lezzet şöleni. Suyuna sıcak tırnak pide banarak yemenin keyfi bambaşkadır.</p>
                 </div>
             </div>
 
-            <!-- Kömbe (Sağda) -->
+            <!-- 3. Kömbe (Resim Sağda) -->
             <div class="row align-items-center mb-5">
                 <div class="col-md-7 pe-md-4 order-2 order-md-1">
                     <h4 class="fw-bold custom-text-dark">Antakya Kömbesi</h4>
-                    <p class="text-muted lh-lg">İçerisine katılan özel baharat karışımı ve üzerine serpilen susamıyla ünlü yöresel bir kurabiye.</p>
+                    <p class="text-muted lh-lg">İçerisine katılan tam 7 farklı özel baharat karışımı ve üzerine serpilen susamıyla, ağızda dağılan yapısıyla ünlü yöresel bir kurabiye. Bayramların ve özel günlerin vazgeçilmezi olan bu lezzet, uzun süre bayatlamadan tazeliğini korur.</p>
                 </div>
                 <div class="col-md-5 mb-4 mb-md-0 order-1 order-md-2">
                     <img src="kombe.jpg" class="img-fluid rounded-4 shadow-sm custom-list-img" alt="Kömbe">
                 </div>
             </div>
 
-            <!-- Affan Kahvesi (Solda) -->
+            <!-- 4. Hatay Soslu Dürüm (Resim Solda) -->
             <div class="row align-items-center mb-5">
                 <div class="col-md-5 mb-4 mb-md-0">
-                    <img src="affan-kahvesi.jpg" class="img-fluid rounded-4 shadow-sm custom-list-img" alt="Affan Kahvesi">
+                    <img src="durum.jpg" class="img-fluid rounded-4 shadow-sm custom-list-img" alt="Hatay Dürüm">
                 </div>
                 <div class="col-md-7 ps-md-4">
-                    <h4 class="fw-bold custom-text-dark">Affan Kahvesi & Haytalı</h4>
-                    <p class="text-muted lh-lg">Altında buz gibi gül suyu şerbeti, ortasında muhallebi ve üstünde dondurmasıyla Hatay sıcağına en güzel çözümdür.</p>
+                    <h4 class="fw-bold custom-text-dark">Hatay Soslu Dürüm</h4>
+                    <p class="text-muted lh-lg">Özel baharatlarla harmanlanmış etin veya tavuğun, odun ateşinde pişen incecik lavaşla buluştuğu efsanevi lezzet. İçine bolca sürülen o meşhur salçalı sosu, taze yeşillikleri ve sıcak servis edilmesiyle Hatay sokak lezzetlerinin tartışmasız en popüler ve doyurucu olanıdır.</p>
                 </div>
             </div>
+
+            <!-- 5. Tarihi Affan Kahvesi (Resim Sağda) -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-7 pe-md-4 order-2 order-md-1">
+                    <h4 class="fw-bold custom-text-dark">Tarihi Affan Kahvesi</h4>
+                    <p class="text-muted lh-lg">Eski Antakya sokaklarını gezerken yorulduğunuzda sığınacağınız en sıcak, en samimi limandır burası. İçeri adım attığınız an o ahşap sandalyeler, eski taş duvarlar ve içerideki neşeli sohbetler sizi yıllar öncesine, büyüklerinizin zamanına götürür. Hatay'ın ruhunu en güzel yansıtan, dostlukların pekiştiği harika bir mekandır.</p>
+                </div>
+                <div class="col-md-5 mb-4 mb-md-0 order-1 order-md-2">
+                    <img src="affan-kahvesi.jpg" class="img-fluid rounded-4 shadow-sm custom-list-img" alt="Affan Kahvesi">
+                </div>
+            </div>
+
+            <!-- 6. Süvari Kahvesi (Resim Solda) -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-5 mb-4 mb-md-0">
+                    <img src="süvari.jpg" class="img-fluid rounded-4 shadow-sm custom-list-img" alt="Süvari Kahvesi">
+                </div>
+                <div class="col-md-7 ps-md-4">
+                    <h4 class="fw-bold custom-text-dark">Süvari Kahvesi</h4>
+                    <p class="text-muted lh-lg">Hatay'a gelip de kahveyi fincanda içmek olmaz! Yörenin kendine has bir kültürü olan "Süvari", çifte kavrulmuş Türk kahvesinin ince belli çay bardağında sunulmuş halidir. Hem kahvenin o yoğun aromasını daha sert hissettirir hem de sohbetinize ayrı bir nostaljik keyif katar.</p>
+                </div>
+            </div>
+
+            <!-- 7. Haytalı Tatlısı (Resim Sağda) -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-7 pe-md-4 order-2 order-md-1">
+                    <h4 class="fw-bold custom-text-dark">Meşhur Haytalı Tatlısı</h4>
+                    <p class="text-muted lh-lg">Sakın "bici bici" ile karıştırmayın! Altında mis gibi gül suyu şerbeti, ortasında  nefis muhallebisi ve en üstünde özel ev yapımı dondurmasıyla Haytalı, sıcak Hatay günlerinde içinizi ferahlatan, kaşık kaşık yemeğe doyamayacağınız efsanevi bir tatlıdır.</p>
+                </div>
+                <div class="col-md-5 mb-4 mb-md-0 order-1 order-md-2">
+                    <img src="haytalı.jpg" class="img-fluid rounded-4 shadow-sm custom-list-img" alt="Haytalı Tatlısı">
+                </div>
+            </div>
+
         </section>
 
     </main>
