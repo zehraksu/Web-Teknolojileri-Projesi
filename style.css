@@ -331,3 +331,52 @@ html, body {
     color: var(--vurgu-renk) !important; 
     border: 1px solid var(--vurgu-renk) !important;
 }
+/* --- ŞEHRİM SAYFASI ÖZEL STİLLERİ --- */
+
+/* 1. Kahraman Görseli (Arka Plan) Düzeltmesi */
+.hatay-hero-section {
+    position: relative;
+    /* DİKKAT: Fotoğraf isminin klasöründekiyle HARFİ HARFİNE (büyük/küçük harf dahil) aynı olduğundan emin ol! */
+    background-image: url('iskenderun-sahil.jpg'); 
+    background-size: cover;
+    background-position: center;
+    min-height: 60vh; /* YENİ: Ekranın %60'ını kaplamasını zorunlu kıldık */
+    display: flex;
+    align-items: center;
+    padding: 60px 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Daha net görünmesi için karanlık seviyesini biraz düşürdük */
+    z-index: 0;
+}
+
+.max-w-800 { max-width: 800px; }
+
+/* Alıntı Kartı ve İkonu */
+.custom-callout-card {
+    background-color: #f8f9fa;
+    border-left: 5px solid var(--vurgu-renk) !important;
+}
+.custom-quote-icon {
+    font-size: 4rem; 
+    color: var(--vurgu-renk); 
+    opacity: 0.1;
+}
+
+/* 2. Slider Fotoğrafları Düzeltmesi (Resimlerin tam sığması için) */
+.custom-slider-img {
+    width: 100%;
+    height: 500px;
+    object-fit: contain; /* YENİ: Resmi kesinlikle kesmez, tamamını kutuya sığdırır */
+    background-color: #e9ecef; /* Kenarlarda boşluk kalırsa şık, açık gri bir renk görünür */
+}
+
+/* Alt alta dizdiğimiz Tarih ve Yemek listelerindeki fotoğrafların ayarı */
+.custom-list-img {
+    width: 100%;
+    aspect-ratio: 4 / 3; 
+    object-fit: cover; /* Bu kartlar için cover kalması daha estetiktir, aksi halde liste yapısı bozulur */
+}
