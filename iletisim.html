@@ -3,19 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İletişim</title>
-    <!-- Bootstrap CSS -->
+    <title>İletişim - Web Projesi</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- Vue.js Kütüphanesi (CDN üzerinden) -->
+    
+    <!-- Vue.js Kütüphanesi (Proje Şartı İçin) -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
-<body class="bg-light d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100 bg-light">
+
     <!-- Üst Menü -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Web Projesi</a>
-            <div class="collapse navbar-collapse">
+            <a class="navbar-brand fw-bold" href="index.html">Web Projesi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobilMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mobilMenu">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Hakkında</a></li>
                     <li class="nav-item"><a class="nav-link" href="cv.html">Özgeçmiş</a></li>
@@ -23,212 +30,104 @@
                     <li class="nav-item"><a class="nav-link" href="miras.html">Takımımız</a></li>
                     <li class="nav-item"><a class="nav-link" href="api.html">İlgi Alanlarım</a></li>
                     <li class="nav-item"><a class="nav-link active" href="iletisim.html">İletişim</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-primary btn-sm ms-2" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-warning btn-sm ms-2 text-dark fw-bold" href="login.html">Login</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Ana İçerik -->
-    <main class="container mt-5 mb-5 flex-grow-1">
+    <!-- Vue.js Uygulama Kapsayıcısı -->
+    <main id="app" class="container py-5 mt-5 flex-grow-1">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <!-- id="vueUygulamasi" Vue.js'in bu alana müdahale etmesini sağlar -->
-                <div class="card shadow border-0" id="vueUygulamasi">
-                    <div class="card-header bg-primary text-white text-center py-3">
-                        <h2 class="mb-0">İletişim Formu</h2>
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5 bg-white">
+                    <h2 class="fw-bold custom-text-primary text-center mb-4 border-bottom pb-3">İletişim Formu</h2>
+                    
+                    <!-- Hata Mesajları Kutusu -->
+                    <div v-if="vueHatalar.length > 0" class="alert alert-danger shadow-sm">
+                        <strong class="d-block mb-2"><i class="fas fa-exclamation-triangle me-2"></i>Vue.js Denetim Hataları:</strong>
+                        <ul class="mb-0">
+                            <li v-for="hata in vueHatalar">{{ hata }}</li>
+                        </ul>
                     </div>
-                    <div class="card-body p-4">
+                    
+                    <div id="native-alert" class="alert alert-danger d-none shadow-sm"></div>
+
+                    <!-- PHP'ye veri gönderecek form -->
+                    <form id="contactForm" action="sonuc.php" method="POST" novalidate ref="formElement">
                         
-                        <!-- Uyarı Mesajları İçin Kutular -->
-                        <div id="nativeHata" class="alert alert-danger d-none"></div>
-                        <div v-if="vueHata" class="alert alert-warning">{{ vueHataMesaji }}</div>
-
-                        <!-- Formumuz: Hedef gonder.php -->
-                        <form id="iletisimFormu" action="gonder.php" method="POST" ref="formReferansi">
-                            
-                            <!-- Text Alanları -->
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label fw-bold">Adınız</label>
-                                    <input type="text" class="form-control" id="ad" name="Ad" v-model="form.ad" placeholder="Adınız">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label fw-bold">Soyadınız</label>
-                                    <input type="text" class="form-control" id="soyad" name="Soyad" v-model="form.soyad" placeholder="Soyadınız">
-                                </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="ad" class="form-label fw-bold">Adınız</label>
+                                <input type="text" class="form-control" id="ad" name="ad" v-model="form.ad" placeholder="Örn: Ali">
                             </div>
-
-                            <div class="row">
-                                <!-- Email Alanı -->
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label fw-bold">E-Posta Adresiniz</label>
-                                    <!-- HTML5 kısıtlaması olmaması için type="text" olarak bırakıldı -->
-                                    <input type="text" class="form-control" id="email" name="Email" v-model="form.email" placeholder="ornek@mail.com">
-                                </div>
-                                <!-- Telefon Alanı -->
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label fw-bold">Telefon Numaranız</label>
-                                    <input type="text" class="form-control" id="telefon" name="Telefon" v-model="form.telefon" placeholder="05551234567">
-                                </div>
+                            <div class="col-md-6">
+                                <label for="soyad" class="form-label fw-bold">Soyadınız</label>
+                                <input type="text" class="form-control" id="soyad" name="soyad" v-model="form.soyad" placeholder="Örn: Yılmaz">
                             </div>
+                        </div>
 
-                            <!-- Radio Button (Cinsiyet) -->
-                            <div class="mb-3">
-                                <label class="form-label fw-bold d-block">Cinsiyetiniz</label>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="Cinsiyet" id="kadin" value="Kadın" v-model="form.cinsiyet">
-                                    <label class="form-check-label" for="kadin">Kadın</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="Cinsiyet" id="erkek" value="Erkek" v-model="form.cinsiyet">
-                                    <label class="form-check-label" for="erkek">Erkek</label>
-                                </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="email" class="form-label fw-bold">E-Posta Adresiniz</label>
+                                <input type="email" class="form-control" id="email" name="email" v-model="form.email" placeholder="mail@ornek.com">
                             </div>
-
-                            <!-- Select Alanı -->
-                            <div class="mb-3">
-                                <label class="form-label fw-bold">Konu</label>
-                                <select class="form-select" id="konu" name="Konu" v-model="form.konu">
-                                    <option value="">Lütfen seçiniz...</option>
-                                    <option value="İş / Staj">İş / Staj</option>
-                                    <option value="Proje Önerisi">Proje Önerisi</option>
-                                </select>
+                            <div class="col-md-6">
+                                <label for="telefon" class="form-label fw-bold">Telefon Numaranız</label>
+                                <input type="text" class="form-control" id="telefon" name="telefon" v-model="form.telefon" placeholder="Sadece rakam giriniz">
                             </div>
+                        </div>
 
-                            <!-- Textarea (Mesaj) -->
-                            <div class="mb-3">
-                                <label class="form-label fw-bold">Mesajınız</label>
-                                <textarea class="form-control" id="mesaj" name="Mesaj" rows="3" v-model="form.mesaj"></textarea>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold d-block">Cinsiyetiniz (Radio)</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="cinsiyet" id="kadin" value="Kadın" v-model="form.cinsiyet">
+                                <label class="form-check-label" for="kadin">Kadın</label>
                             </div>
-
-                            <!-- Checkbox (Onay) -->
-                            <div class="mb-4 form-check">
-                                <input type="checkbox" class="form-check-input" id="onay" name="Onay" value="Kabul Edildi" v-model="form.onay">
-                                <label class="form-check-label" for="onay">Verilerimin işlenmesini kabul ediyorum.</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="cinsiyet" id="erkek" value="Erkek" v-model="form.cinsiyet">
+                                <label class="form-check-label" for="erkek">Erkek</label>
                             </div>
+                        </div>
 
-                            <!-- İki Farklı Gönderim Butonu -->
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                <button type="button" class="btn btn-dark me-md-2" onclick="nativeDogrula()">Gönder (Native JS)</button>
-                                <button type="button" class="btn btn-success" @click="vueDogrula()">Gönder (Vue.js)</button>
-                            </div>
+                        <div class="mb-3">
+                            <label for="konu" class="form-label fw-bold">Konu (Select)</label>
+                            <select class="form-select" id="konu" name="konu" v-model="form.konu">
+                                <option value="">Lütfen seçiniz...</option>
+                                <option value="İş Birliği">İş Birliği</option>
+                                <option value="Soru / Öneri">Soru / Öneri</option>
+                                <option value="Diğer">Diğer</option>
+                            </select>
+                        </div>
 
-                        </form>
-                    </div>
+                        <div class="mb-4">
+                            <label for="mesaj" class="form-label fw-bold">Mesajınız</label>
+                            <textarea class="form-control" id="mesaj" name="mesaj" rows="4" v-model="form.mesaj" placeholder="Mesajınızı buraya yazın..."></textarea>
+                        </div>
+
+                        <div class="form-check mb-4 border-top pt-3">
+                            <input class="form-check-input" type="checkbox" id="onay" name="onay" v-model="form.onay">
+                            <label class="form-check-label text-muted" for="onay">
+                                Verilerimin işlenmesini kabul ediyorum. (Checkbox)
+                            </label>
+                        </div>
+
+                        <!-- İki Farklı Doğrulama Butonu (Proje Şartı) -->
+                        <div class="d-flex justify-content-end gap-3 mt-4">
+                            <button type="button" id="btnNativeJS" class="btn btn-dark fw-bold px-4 shadow-sm">
+                                <i class="fas fa-code me-2"></i>Gönder (Native JS)
+                            </button>
+                            <button type="button" @click="kontrolEtVue" class="btn btn-success fw-bold px-4 shadow-sm">
+                                <i class="fab fa-vuejs me-2"></i>Gönder (Vue.js)
+                            </button>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3 mt-auto">
-        <p class="mb-0">&copy; <span id="guncelYil"></span> Betül Zehra Aksu - Tüm hakları saklıdır.</p>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>document.getElementById("guncelYil").textContent = new Date().getFullYear();</script>
-
-    <!-- 1. YÖNTEM: NATIVE JAVASCRIPT DENETİMİ -->
-    <script>
-        function nativeDogrula() {
-            const nativeHataKutusu = document.getElementById('nativeHata');
-            nativeHataKutusu.classList.add('d-none'); 
-
-            const ad = document.getElementById('ad').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const telefon = document.getElementById('telefon').value.trim();
-            const onay = document.getElementById('onay').checked;
-
-            if (ad === '' || email === '' || telefon === '') {
-                nativeHataGoster('Lütfen Ad, E-Posta ve Telefon alanlarını boş bırakmayınız.');
-                return;
-            }
-
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                nativeHataGoster('Geçersiz e-posta formatı! (Native JS Denetimi)');
-                return;
-            }
-
-            const telefonRegex = /^[0-9]+$/;
-            if (!telefonRegex.test(telefon)) {
-                nativeHataGoster('Telefon alanına sadece RAKAM girilmelidir! (Native JS Denetimi)');
-                return;
-            }
-
-            if (!onay) {
-                nativeHataGoster('Lütfen onay kutusunu işaretleyiniz.');
-                return;
-            }
-
-            document.getElementById('iletisimFormu').submit();
-        }
-
-        function nativeHataGoster(mesaj) {
-            const nativeHataKutusu = document.getElementById('nativeHata');
-            nativeHataKutusu.classList.remove('d-none');
-            nativeHataKutusu.textContent = mesaj;
-        }
-    </script>
-
-    <!-- 2. YÖNTEM: VUE.JS DENETİMİ -->
-    <script>
-        const { createApp } = Vue;
-
-        createApp({
-            data() {
-                return {
-                    form: {
-                        ad: '',
-                        soyad: '',
-                        email: '',
-                        telefon: '',
-                        cinsiyet: '',
-                        konu: '',
-                        mesaj: '',
-                        onay: false
-                    },
-                    vueHata: false,
-                    vueHataMesaji: ''
-                }
-            },
-            methods: {
-                vueDogrula() {
-                    this.vueHata = false;
-
-                    if (!this.form.ad || !this.form.email || !this.form.telefon) {
-                        this.vueHataGoster('Lütfen gerekli alanları doldurunuz! (Vue.js Denetimi)');
-                        return;
-                    }
-
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailRegex.test(this.form.email)) {
-                        this.vueHataGoster('Geçersiz e-posta formatı! (Vue.js Denetimi)');
-                        return;
-                    }
-
-                    const telefonRegex = /^[0-9]+$/;
-                    if (!telefonRegex.test(this.form.telefon)) {
-                        this.vueHataGoster('Telefon alanına sadece RAKAM girilmelidir! (Vue.js Denetimi)');
-                        return;
-                    }
-
-                    if (!this.form.onay) {
-                        this.vueHataGoster('Lütfen onay kutusunu işaretleyiniz. (Vue.js Denetimi)');
-                        return;
-                    }
-
-                    // Hata yoksa formu Vue referansı üzerinden PHP dosyasına gönder
-                    this.$refs.formReferansi.submit();
-                },
-                vueHataGoster(mesaj) {
-                    this.vueHata = true;
-                    this.vueHataMesaji = mesaj;
-                }
-            }
-        }).mount('#vueUygulamasi');
-    </script>
+    <script src="iletisim.js"></script>
 </body>
 </html>

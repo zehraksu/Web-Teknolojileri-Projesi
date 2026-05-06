@@ -113,7 +113,7 @@ body {
     height: 150px;
     overflow-y: hidden; /* Taşmayı gizle, sadece aktif söz ortada dursun */
     background-color: #f8f9fa;
-    border-inner: 1px solid #ddd;
+    border: 1px solid #ddd;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -381,4 +381,68 @@ html, body {
     width: 100%;
     aspect-ratio: 4 / 3; 
     object-fit: cover; /* Bu kartlar için cover kalması daha estetiktir, aksi halde liste yapısı bozulur */
+}
+/* =========================================
+   HATAYSPOR SAYFASI ÖZEL STİLLERİ
+   ========================================= */
+/* Hatayspor Bordo Rengi Tanımlaması */
+.custom-text-bordo {
+    color: #720017 !important; /* Hatayspor'un tok bordo rengi */
+}
+.custom-bg-bordo {
+    background-color: #720017 !important;
+    color: white !important;
+}
+
+/* Oyuncu Kartları Tasarımı */
+.custom-player-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
+    border-bottom: 4px solid #720017 !important; /* Kartın altına bordo şerit */
+}
+.custom-player-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(114, 0, 23, 0.15) !important; /* Bordo gölge */
+}
+
+/* Oyuncu Profil Fotoğrafları */
+.custom-player-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 3px solid #720017; /* Resmin etrafına bordo çerçeve */
+    padding: 3px;
+}
+/* =========================================
+   API (İLGİ ALANLARIM) SAYFASI STİLLERİ
+   ========================================= */
+
+/* Sekme (Tab) Butonları Tasarımı */
+.custom-tabs .nav-link {
+    color: var(--metin-renk);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+.custom-tabs .nav-link.active {
+    background-color: var(--ana-renk) !important;
+    color: white !important;
+    box-shadow: 0 4px 10px rgba(30, 136, 229, 0.3);
+}
+
+/* API Kartları ve Animasyonları */
+.api-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.api-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1) !important;
+}
+
+/* API'den Gelen Resimlerin Sığdırılması */
+.api-img {
+    height: 350px;
+    object-fit: cover; /* Resimleri ezmeden çerçeveye sığdırır */
+    object-position: top; /* Özellikle kitap/film kapaklarında başlıkların kesilmemesi için yukarıya hizalar */
 }

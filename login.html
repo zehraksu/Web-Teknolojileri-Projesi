@@ -3,110 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sisteme Giriş</title>
-    <!-- Bootstrap CSS -->
+    <title>Giriş Yap - Web Projesi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-light d-flex flex-column min-vh-100">
-    <!-- Üst Menü -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Web Projesi</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Hakkında</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cv.html">Özgeçmiş</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sehir.html">Şehrim</a></li>
-                    <li class="nav-item"><a class="nav-link" href="miras.html">Takımımız</a></li>
-                    <li class="nav-item"><a class="nav-link" href="api.html">İlgi Alanlarım</a></li>
-                    <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-primary btn-sm ms-2 active" href="login.html">Login</a></li>
-                </ul>
+<body class="d-flex align-items-center justify-content-center min-vh-100 bg-light" style="font-family: 'Poppins', sans-serif;">
+
+    <div class="card shadow-lg border-0 rounded-4" style="width: 100%; max-width: 450px;">
+        <div class="card-header bg-dark text-white text-center py-4 rounded-top-4">
+            <h3 class="mb-0 fw-bold">Öğrenci Girişi</h3>
+        </div>
+        <div class="card-body p-4 p-md-5">
+            
+            <!-- Hata kutusu -->
+            <div id="loginError" class="alert alert-danger d-none small"></div>
+
+            <form id="loginForm" action="login.php" method="POST" novalidate>
+                <div class="mb-4">
+                    <label for="email" class="form-label fw-bold">Öğrenci E-Posta</label>
+                    <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="b2612100001@sakarya.edu.tr">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="form-label fw-bold">Şifre</label>
+                    <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Öğrenci Numaranız (Örn: b2612100001)">
+                </div>
+                <button type="button" id="btnLogin" class="btn btn-warning w-100 py-3 fw-bold text-dark fs-5 shadow-sm rounded-3">
+                    Giriş Yap
+                </button>
+            </form>
+            <div class="text-center mt-3">
+                <a href="index.html" class="text-muted text-decoration-none small">Ana Sayfaya Dön</a>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <!-- Ana İçerik: Login Formu -->
-    <main class="container mt-5 flex-grow-1 d-flex justify-content-center align-items-center">
-        <div class="col-md-5">
-            <div class="card shadow border-0">
-                <div class="card-header bg-dark text-white text-center py-3">
-                    <h3 class="mb-0">Öğrenci Girişi</h3>
-                </div>
-                <div class="card-body p-4">
-                    
-                    <div id="hataKutusu" class="alert alert-danger d-none" role="alert"></div>
-
-                    <form id="loginFormu" action="login_kontrol.php" method="POST" onsubmit="return loginDogrula(event)">
-                        
-                        <div class="mb-3">
-                            <label for="email" class="form-label fw-bold">Öğrenci E-Posta</label>
-                            <!-- Yönlendirme metni senin e-postan olarak güncellendi -->
-                            <input type="text" class="form-control" id="email" name="email" placeholder="zehra.aksu@ogr.sakarya.edu.tr">
-                        </div>
-
-                        <div class="mb-4">
-                            <label for="sifre" class="form-label fw-bold">Şifre</label>
-                            <input type="password" class="form-control" id="sifre" name="sifre" placeholder="Öğrenci Numaranız">
-                        </div>
-
-                        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Giriş Yap</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3 mt-auto">
-        <p class="mb-0">&copy; <span id="guncelYil"></span> Betül Zehra Aksu - Tüm hakları saklıdır.</p>
-    </footer>
-
-    <!-- JS Kodları -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.getElementById("guncelYil").textContent = new Date().getFullYear();
-
-        const hataKutusu = document.getElementById('hataKutusu');
-
-        // URL'den gelen PHP hatalarını yakalama
-        const urlParams = new URLSearchParams(window.location.search);
-        const hataDurumu = urlParams.get('hata');
-        
-        if (hataDurumu === 'yanlis') {
-            hatayiGoster('E-posta veya şifre hatalı! Lütfen tekrar deneyin.');
-        } else if (hataDurumu === 'bos') {
-            hatayiGoster('Sunucuya boş veri gönderilemez!');
-        }
-
-        // Form gönderilmeden önce çalışacak JavaScript Denetimi
-        function loginDogrula(event) {
-            hataKutusu.classList.add('d-none'); 
-
+        document.getElementById('btnLogin').addEventListener('click', function() {
             const email = document.getElementById('email').value.trim();
-            const sifre = document.getElementById('sifre').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorBox = document.getElementById('loginError');
+            
+            // Sakarya Üniversitesi Öğrenci Mail Formatı Kontrolü (b ile başlar, rakamlar gelir, @sakarya.edu.tr ile biter)
+            const sakaryaRegex = /^b[0-9]+@sakarya\.edu\.tr$/i;
 
-            if (email === '' || sifre === '') {
-                event.preventDefault(); 
-                hatayiGoster('Lütfen e-posta ve şifre alanlarını boş bırakmayınız!');
-                return false;
+            if (email === '' || password === '') {
+                errorBox.textContent = 'E-posta ve şifre alanları boş bırakılamaz.';
+                errorBox.classList.remove('d-none');
+            } else if (!sakaryaRegex.test(email)) {
+                errorBox.textContent = 'Lütfen geçerli bir öğrenci maili giriniz (Örn: b123456789@sakarya.edu.tr)';
+                errorBox.classList.remove('d-none');
+            } else {
+                errorBox.classList.add('d-none');
+                document.getElementById('loginForm').submit(); // Hatasızsa PHP'ye gönder
             }
-
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                event.preventDefault();
-                hatayiGoster('Lütfen geçerli bir e-posta adresi giriniz!');
-                return false;
-            }
-
-            return true; 
-        }
-
-        function hatayiGoster(mesaj) {
-            hataKutusu.classList.remove('d-none');
-            hataKutusu.textContent = mesaj;
-        }
+        });
     </script>
 </body>
 </html>
