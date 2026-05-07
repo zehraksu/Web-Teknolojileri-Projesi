@@ -1,71 +1,11 @@
 // Sayfa yüklendiğinde çalışacak ana fonksiyon
 document.addEventListener('DOMContentLoaded', () => {
-    fetchMovies();
     fetchSeries();
     fetchBooks();
 });
 
 // ==========================================
-// 1. FİLMLERİ ÇEKME FONKSİYONU (HIZLI & TIMELINE)
-// ==========================================
-async function fetchMovies() {
-    const moviesList = [ 
-        'Harry Potter and the Prisoner of Azkaban', 
-        'flipped', 
-        '28 days later', 
-        'dune'
-    ];
-    
-    const container = document.getElementById('movies-container');
-    container.innerHTML = ''; 
-
-    try {
-        const fetchPromises = moviesList.map(title =>
-            // DİKKAT: Linkin sonuna &country=tr ekledik ki Türkçe isimleri bulabilsin
-            fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(title)}&entity=movie&limit=1&country=tr`)
-                .then(res => res.json())
-                .catch(err => null)
-        );
-
-        const results = await Promise.all(fetchPromises);
-
-        results.forEach(data => {
-            if (data && data.results && data.results.length > 0) {
-                const movie = data.results[0];
-                const highResImage = movie.artworkUrl100.replace('100x100bb', '600x600bb');
-                const linkUrl = movie.trackViewUrl || '#'; 
-                
-                const card = `
-                    <div class="timeline-item">
-                        <div class="timeline-icon bg-primary">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <a href="${linkUrl}" target="_blank" class="text-decoration-none">
-                            <div class="timeline-content card border-0 shadow-sm p-3 bg-white">
-                                <div class="row g-0 align-items-center">
-                                    <div class="col-4 col-sm-3 col-md-2 text-center">
-                                        <img src="${highResImage}" class="img-fluid rounded shadow-sm" style="max-height: 120px; object-fit: cover;" alt="${movie.trackName}">
-                                    </div>
-                                    <div class="col-8 col-sm-9 col-md-10 ps-3">
-                                        <h5 class="fw-bold text-dark mb-1">${movie.trackName}</h5>
-                                        <p class="text-muted small mb-2"><i class="fas fa-calendar-alt me-1"></i> ${movie.releaseDate.substring(0, 4)}</p>
-                                        <span class="badge custom-bg-primary">${movie.primaryGenreName}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                `;
-                container.innerHTML += card;
-            }
-        });
-    } catch (error) {
-        console.error('Film çekme hatası:', error);
-    }
-}
-
-// ==========================================
-// 2. DİZİLERİ ÇEKME FONKSİYONU (HIZLI & TIMELINE)
+// 1. DİZİLERİ ÇEKME FONKSİYONU (TVMAZE API)
 // ==========================================
 async function fetchSeries() {
     const seriesList = [
@@ -78,6 +18,7 @@ async function fetchSeries() {
     ]; 
     
     const container = document.getElementById('series-container');
+    if (!container) return;
     container.innerHTML = '';
 
     try {
@@ -89,14 +30,12 @@ async function fetchSeries() {
 
         const results = await Promise.all(fetchPromises);
 
-        results.forEach(data => {
+        results.forEach((data, index) => {
             if (data && data.length > 0) {
                 const show = data[0].show;
                 
                 let imageUrl = show.image ? show.image.original : 'https://via.placeholder.com/400x600?text=Resim+Yok';
-                if (show.name === 'Prison Break') {
-                    imageUrl = 'prison-afis.jpg';
-                }
+                if (show.name === 'Prison Break') imageUrl = 'prison-afis.jpg';
                 
                 let genresHtml = '';
                 if (show.genres && show.genres.length > 0) {
@@ -131,6 +70,18 @@ async function fetchSeries() {
                     </div>
                 `;
                 container.innerHTML += card;
+            } else {
+                const notFoundCard = `
+                    <div class="timeline-item">
+                        <div class="timeline-icon bg-secondary text-white">
+                            <i class="fas fa-question"></i>
+                        </div>
+                        <div class="timeline-content card border-0 shadow-sm p-3 bg-light">
+                            <p class="text-muted mb-0"><strong>"${seriesList[index]}"</strong> API'de bulunamadı.</p>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += notFoundCard;
             }
         });
     } catch (error) {
@@ -139,52 +90,50 @@ async function fetchSeries() {
 }
 
 // ==========================================
-// 3. KİTAPLARI ÇEKME FONKSİYONU (HIZLI & TIMELINE)
+// 2. KİTAPLARI ÇEKME FONKSİYONU (OPEN LIBRARY API)
+// ==========================================
+// ==========================================
+// 2. KİTAPLARI ÇEKME FONKSİYONU
 // ==========================================
 async function fetchBooks() {
     const booksList = [
         'Kürk Mantolu Madonna', 
         'Beyaz Zambaklar Ülkesinde', 
-        'satranç',
-        'the 7 dials mystery'
+        'İçimizdeki Şeytan',            
+        'The Seven Dials Mystery'     
     ]; 
     
     const container = document.getElementById('books-container');
-    container.innerHTML = '';
+    if (!container) return;
+    
+    container.innerHTML = '<p class="text-muted ms-4"><i class="fas fa-spinner fa-spin me-2"></i>Kitaplar getiriliyor...</p>';
 
     try {
         const fetchPromises = booksList.map(title =>
-            // DİKKAT: intitle: kısıtlamasını kaldırdık, artık daha esnek arıyor
-            fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(title)}&maxResults=1`)
+            fetch(`https://openlibrary.org/search.json?title=${encodeURIComponent(title)}&limit=1`)
                 .then(res => res.json())
                 .catch(err => null)
         );
 
         const results = await Promise.all(fetchPromises);
+        container.innerHTML = ''; 
 
         results.forEach((data, index) => {
-            if (data && data.items && data.items.length > 0) {
-                const bookInfo = data.items[0].volumeInfo;
+            if (data && data.docs && data.docs.length > 0) {
+                const bookInfo = data.docs[0];
                 const bookTitle = bookInfo.title;
-                const author = bookInfo.authors ? bookInfo.authors[0] : 'Bilinmeyen Yazar';
+                const author = bookInfo.author_name ? bookInfo.author_name[0] : 'Bilinmeyen Yazar';
                 
-                let imageUrl = bookInfo.imageLinks?.thumbnail || 'https://via.placeholder.com/400x600?text=Kapak+Yok';
-
-                // Arama yaptığımız kelimeyi (title) baz alarak resim eşleştirmesi yapıyoruz
+                let imageUrl = 'https://via.placeholder.com/400x600?text=Kapak+Yok';
                 const searchTitle = booksList[index].toLowerCase();
                 
-                if (searchTitle.includes('kürk')) {
-                    imageUrl = 'kurk-mantolu.jpg';
-                } else if (searchTitle.includes('yedi')) {
-                    imageUrl = 'yedi-kadran.jpg';
-                } else if (searchTitle.includes('beyaz')) {
-                    imageUrl = 'beyaz-zambaklar.jpg';
-                } else if (searchTitle.includes('incir')) {
-                    // Eğer incir kuşları için resmin varsa adını buraya yazabilirsin
-                    imageUrl = 'incir-kuslari.jpg'; 
-                }
+                // Kendi resimlerini eşleştirme bölümü
+                if (searchTitle.includes('kürk')) imageUrl = 'kurk-mantolu.jpg';
+                else if (searchTitle.includes('beyaz')) imageUrl = 'beyaz-zambaklar.jpg';
+                else if (searchTitle.includes('içimizdeki') || searchTitle.includes('icimizdeki')) imageUrl = 'icimizdeki-seytan.jpg'; 
+                else if (searchTitle.includes('seven dials')) imageUrl = 'yedi-kadran.jpg';
 
-                const linkUrl = bookInfo.infoLink || '#'; 
+                const linkUrl = bookInfo.key ? `https://openlibrary.org${bookInfo.key}` : '#'; 
 
                 const card = `
                     <div class="timeline-item">
@@ -210,6 +159,18 @@ async function fetchBooks() {
                     </div>
                 `;
                 container.innerHTML += card;
+            } else {
+                const notFoundCard = `
+                    <div class="timeline-item">
+                        <div class="timeline-icon bg-secondary text-white">
+                            <i class="fas fa-question"></i>
+                        </div>
+                        <div class="timeline-content card border-0 shadow-sm p-3 bg-light">
+                            <p class="text-muted mb-0"><strong>"${booksList[index]}"</strong> API'de bulunamadı.</p>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += notFoundCard;
             }
         });
     } catch (error) {
