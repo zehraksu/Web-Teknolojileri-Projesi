@@ -446,3 +446,39 @@ html, body {
     object-fit: cover; /* Resimleri ezmeden çerçeveye sığdırır */
     object-position: top; /* Özellikle kitap/film kapaklarında başlıkların kesilmemesi için yukarıya hizalar */
 }
+/* Galeri Resim Ayarları */
+.gallery-img {
+    width: 100%;
+    height: 250px; /* Tüm resimlerin boyunu eşitler */
+    object-fit: cover; /* Resimleri bozmadan kutuya sığdırır */
+    transition: transform 0.4s ease; /* Büyüme efekti süresi */
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden; /* Taşmaları engeller */
+    border-radius: 10px;
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.1); /* Üzerine gelince %10 büyütür */
+}
+
+/* Resim Altı Yazısı (Opsiyonel) */
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5); /* Siyah şeffaf bant */
+    color: white;
+    font-size: 0.9rem;
+    padding: 5px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-caption {
+    opacity: 1; /* Üzerine gelince yazıyı gösterir */
+}

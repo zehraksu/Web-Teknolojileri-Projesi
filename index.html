@@ -5,29 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ana Sayfa - Betül Zehra Aksu</title>
     
-    <!-- Google Fonts: Enerjik ve Profesyonel 'Poppins' Fontu -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome İkon Kütüphanesi (Instagram, GitHub logoları için) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
- <!-- Üst Menü (Tüm Sayfalarla Aynı - Mobil Buton Eklendi) -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">Web Projesi</a>
             
-            <!-- MOBİL EKRANLAR İÇİN EKLENEN HAMBURGER BUTONU -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobilMenu" aria-controls="mobilMenu" aria-expanded="false" aria-label="Menüyü Aç">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- id="mobilMenu" EKLENEREK BUTON İLE BAĞLANTISI SAĞLANDI -->
             <div class="collapse navbar-collapse" id="mobilMenu">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="index.html">Hakkında</a></li>
@@ -36,99 +30,69 @@
                     <li class="nav-item"><a class="nav-link" href="miras.html">HataySpor</a></li>
                     <li class="nav-item"><a class="nav-link" href="api.html">İlgi Alanlarım</a></li>
                     <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
-                    <!-- Login butonu rengi CV sayfandaki gibi ayarlandı -->
                     <li class="nav-item"><a class="nav-link btn btn-warning btn-sm ms-2 text-dark fw-bold" href="login.html">Login</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- 1. BÖLÜM: TAM EKRAN KARŞILAMA VE SOFT ÇİZİMLER -->
-    <!-- overflow-hidden ekledik ki çizimler ekranın dışına taşmasın -->
     <header class="hero-section d-flex flex-column align-items-center justify-content-center vh-100 text-center position-relative overflow-hidden">
         
-        <!-- Arka Planda Yüzen Soft Çizimler -->
         <div class="soft-shape shape-1"></div>
         <div class="soft-shape shape-2"></div>
         <div class="soft-shape shape-3"></div>
 
-        <!-- Yazıların çizimlerin altında kalmaması için z-1 sınıfı eklendi -->
         <h1 class="display-1 fw-bold hero-title z-1">Merhaba!</h1>
         <p class="lead mt-3 z-1 fw-bold" style="color: var(--metin-renk);">Dünyama Hoş Geldiniz</p>
         <p class="scroll-hint mt-5 text-muted z-1"><small>Devam etmek için aşağı kaydırın veya tıklayın</small></p>
         <a href="#profil-alani" class="scroll-down-icon mt-2 z-1"><i class="fas fa-chevron-down fs-1"></i></a>
 
-        <!-- Alt Kısım Soft Dalga (Wave) Çizimi -->
         <div class="wave-container">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                <!-- fill değeri sitemizin arka plan rengiyle aynıdır, böylece kusursuz birleşir -->
                 <path fill="#F8F9FA" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
             </svg>
         </div>
     </header>
-    <!-- 2. BÖLÜM: PROFİL VE HOBİLER -->
-    <main id="profil-alani" class="container py-5 ">
+
+    <main id="profil-alani" class="container py-5 flex-grow-1">
         <div class="row align-items-center mt-5">
             
-            <!-- Sol Kolon: Yazılar ve Logolu Butonlar -->
-            <div class="col-md-6 mb-4">
+            <div class="col-md-6 mb-4 pe-md-5">
                 <h2 class="display-5 fw-bold mb-3 baslik-renk">Ben Betül Zehra Aksu</h2>
-                <p class="lead text-muted">Sakarya Üniversitesi'nde Bilgisayar Mühendisliği 1. sınıf öğrencisiyim.</p>
+                <h5 class="text-primary mb-4">Sakarya Üniversitesi | Bilgisayar Mühendisliği Öğrencisi</h5>
                 
-                <h4 class="mt-4 fw-bold baslik-renk">Hobilerim ve Etkinlikler</h4>
-                <ul class="list-group list-group-flush mb-4 shadow-sm rounded-3">
-                    <li class="list-group-item bg-transparent">🏃‍♀️ Spor ve doğada yürüyüş yapmak.</li>
-                    <li class="list-group-item bg-transparent">🎬 Film ve dizi izlemek.</li>
-                    <li class="list-group-item bg-transparent">☕ Arkadaşlarımla takılmak ve sosyalleşmek.</li>
-                    <li class="list-group-item bg-transparent">📚 Kitap okumak.</li>
-                    <li class="list-group-item bg-transparent">🎸 Gitar çalmak.</li>
-                    <li class="list-group-item bg-transparent">📸 Fotoğraf çekmek.</li>
-                </ul>
+                <p class="lead text-muted" style="line-height: 1.8; font-size: 1.1rem;">
+    18 yaşındayım ve teknolojiyi seven bir mühendis adayıyım. Akademik hayatımda şu an bildiğim yazılım dillerinde uzmanlaşmayı hedeflerken, kişisel vizyonumu genişletmek için  bildiğim dilleri geliştirip ayrıca İtalyanca öğrenmek en büyük hedeflerimden biri. Ekran başında kod yazarak problem çözmekten ne kadar keyif alıyorsam, hayatı çok yönlü yaşamayı da o kadar önemsiyorum. Doğada yürüyüş ve spor yapmak, gitar çalarak müziğin ritmine kapılmak ve anı ölümsüzleştiren fotoğraflar çekmek bana büyük bir enerji veriyor. Kitapların ve filmlerin farklı dünyalarında kaybolmayı, bilgisayar oyunlarıyla strateji geliştirmeyi ve arkadaşlarımla sosyalleşip yeni anılar biriktirmeyi çok seviyorum. Araştırmacı ruhumu, hobilerimden aldığım bu ilham ve dinamizmle besliyorum.
+</p>
 
-                <!-- Logolu ve Enerjik Sosyal Medya Butonları -->
-                <h4 class="fw-bold mb-3 baslik-renk">Bana Ulaşın</h4>
-                <div class="d-flex gap-3">
+                <h5 class="fw-bold mt-5 mb-3 baslik-renk">Bana Ulaşın</h5>
+                <div class="d-flex flex-wrap gap-3">
                     <a href="https://www.instagram.com/_btlzehra_/" target="_blank" class="btn btn-insta px-4 py-2 fw-bold shadow-sm">
                         <i class="fab fa-instagram fs-5 me-2"></i> Instagram
                     </a>
                     <a href="https://github.com/zehraksu" target="_blank" class="btn btn-github px-4 py-2 fw-bold shadow-sm">
                         <i class="fab fa-github fs-5 me-2"></i> GitHub
                     </a>
+                    <a href="mailto:aksuzera.12@gmail.com" class="btn btn-danger px-4 py-2 fw-bold shadow-sm">
+                        <i class="fas fa-envelope fs-5 me-2"></i> Mail Gönder
+                    </a>
                 </div>
             </div>
 
-            <!-- Sağ Kolon: Resim ve Spotify Tarzı Müzik Kutusu -->
-            <div class="col-md-6">
-                <!-- Profil Fotoğrafı -->
-                <div class="mb-5 text-center">
-                    <img src="profil.jpg" alt="Betül Zehra" class="img-fluid rounded-4 shadow-lg w-75 mx-auto d-block">
-                </div>
-                
-                <!-- Spotify Tarzı Müzik Kutusu -->
-                <div class="music-player-box shadow-lg rounded-4 p-4 text-center">
-                    <h5 class="fw-bold mb-3"><i class="fas fa-music me-2"></i> Sertab Erener - İncelikler</h5>
-                    
-                    <!-- DİKKAT: Şarkının çalışması için sarki.mp3 dosyasını klasörüne eklemelisin -->
-                    <audio id="sarkiCalar" controls class="w-100 mb-3">
-                        <source src="sarki.mp3" type="audio/mpeg">
-                        Tarayıcınız ses elemanını desteklemiyor.
-                    </audio>
-
-                    <!-- Şarkı Sözleri Konteyneri -->
-                    <div id="sarki-sozleri" class="lyrics-container p-3 rounded-3">
-                        <!-- JavaScript ile sözler buraya saniyesine göre gelecek -->
-                    </div>
+            <div class="col-md-6 text-center mt-4 mt-md-0">
+                <div class="position-relative d-inline-block">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary rounded-4 opacity-25" style="transform: translate(15px, 15px);"></div>
+                    <img src="profil.jpg" alt="Betül Zehra Aksu" class="img-fluid rounded-4 shadow-lg position-relative" style="max-height: 500px; object-fit: cover;">
                 </div>
             </div>
 
         </div>
     </main>
 
-    <footer class="text-center py-3 ">
-        <p class="mb-0">&copy; 2025-2026 Betül Zehra Aksu</p>
+    <footer class="text-center py-3 mt-auto w-100 bg-light">
+        <p class="mb-0 text-muted">&copy; 2025-2026 Betül Zehra Aksu</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="muzik-senkron.js"></script> <!-- JavaScript Dosyamızı Bağladık -->
-</body>
+    </body>
 </html>

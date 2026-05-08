@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================
-// 1. DİZİLERİ ÇEKME FONKSİYONU (TVMAZE API)
+// 1. DİZİLERİ ÇEKME FONKSİYONU (HİBRİT)
 // ==========================================
 async function fetchSeries() {
     const seriesList = [
@@ -35,7 +35,7 @@ async function fetchSeries() {
                 const show = data[0].show;
                 
                 let imageUrl = show.image ? show.image.original : 'https://via.placeholder.com/400x600?text=Resim+Yok';
-                if (show.name === 'Prison Break') imageUrl = 'prison-afis.jpg';
+                if (show.name.toLowerCase() === 'prison break') imageUrl = 'prison-afis.jpg';
                 
                 let genresHtml = '';
                 if (show.genres && show.genres.length > 0) {
@@ -60,9 +60,7 @@ async function fetchSeries() {
                                     <div class="col-8 col-sm-9 col-md-10 ps-3">
                                         <h5 class="fw-bold text-dark mb-1">${show.name}</h5>
                                         <p class="text-muted small mb-2"><i class="fas fa-star text-warning me-1"></i> Puan: ${show.rating.average || 'N/A'}</p>
-                                        <div class="mt-auto">
-                                            ${genresHtml}
-                                        </div>
+                                        <div class="mt-auto">${genresHtml}</div>
                                     </div>
                                 </div>
                             </div>
@@ -70,18 +68,6 @@ async function fetchSeries() {
                     </div>
                 `;
                 container.innerHTML += card;
-            } else {
-                const notFoundCard = `
-                    <div class="timeline-item">
-                        <div class="timeline-icon bg-secondary text-white">
-                            <i class="fas fa-question"></i>
-                        </div>
-                        <div class="timeline-content card border-0 shadow-sm p-3 bg-light">
-                            <p class="text-muted mb-0"><strong>"${seriesList[index]}"</strong> API'de bulunamadı.</p>
-                        </div>
-                    </div>
-                `;
-                container.innerHTML += notFoundCard;
             }
         });
     } catch (error) {
@@ -90,17 +76,14 @@ async function fetchSeries() {
 }
 
 // ==========================================
-// 2. KİTAPLARI ÇEKME FONKSİYONU (OPEN LIBRARY API)
-// ==========================================
-// ==========================================
-// 2. KİTAPLARI ÇEKME FONKSİYONU
+// 2. KİTAPLARI ÇEKME FONKSİYONU (HİBRİT)
 // ==========================================
 async function fetchBooks() {
     const booksList = [
         'Kürk Mantolu Madonna', 
         'Beyaz Zambaklar Ülkesinde', 
-        'İçimizdeki Şeytan',            
-        'The Seven Dials Mystery'     
+        'Sineklerin Tanrısı',
+        'The Seven Dials Mystery'
     ]; 
     
     const container = document.getElementById('books-container');
@@ -123,15 +106,18 @@ async function fetchBooks() {
                 const bookInfo = data.docs[0];
                 const bookTitle = bookInfo.title;
                 const author = bookInfo.author_name ? bookInfo.author_name[0] : 'Bilinmeyen Yazar';
-                
-                let imageUrl = 'https://via.placeholder.com/400x600?text=Kapak+Yok';
                 const searchTitle = booksList[index].toLowerCase();
                 
-                // Kendi resimlerini eşleştirme bölümü
-                if (searchTitle.includes('kürk')) imageUrl = 'kurk-mantolu.jpg';
-                else if (searchTitle.includes('beyaz')) imageUrl = 'beyaz-zambaklar.jpg';
-                else if (searchTitle.includes('içimizdeki') || searchTitle.includes('icimizdeki')) imageUrl = 'icimizdeki-seytan.jpg'; 
-                else if (searchTitle.includes('seven dials')) imageUrl = 'yedi-kadran.jpg';
+                let imageUrl;
+                if (searchTitle.includes('sineklerin') || searchTitle.includes('seven dials')) {
+                    imageUrl = bookInfo.cover_i 
+                        ? `https://covers.openlibrary.org/b/id/${bookInfo.cover_i}-M.jpg` 
+                        : 'https://via.placeholder.com/400x600?text=Kapak+Yok';
+                } else {
+                    if (searchTitle.includes('kürk')) imageUrl = 'kurk-mantolu.jpg';
+                    else if (searchTitle.includes('beyaz')) imageUrl = 'beyaz-zambaklar.jpg';
+                    else imageUrl = 'https://via.placeholder.com/400x600?text=Kapak+Yok';
+                }
 
                 const linkUrl = bookInfo.key ? `https://openlibrary.org${bookInfo.key}` : '#'; 
 
@@ -159,18 +145,6 @@ async function fetchBooks() {
                     </div>
                 `;
                 container.innerHTML += card;
-            } else {
-                const notFoundCard = `
-                    <div class="timeline-item">
-                        <div class="timeline-icon bg-secondary text-white">
-                            <i class="fas fa-question"></i>
-                        </div>
-                        <div class="timeline-content card border-0 shadow-sm p-3 bg-light">
-                            <p class="text-muted mb-0"><strong>"${booksList[index]}"</strong> API'de bulunamadı.</p>
-                        </div>
-                    </div>
-                `;
-                container.innerHTML += notFoundCard;
             }
         });
     } catch (error) {

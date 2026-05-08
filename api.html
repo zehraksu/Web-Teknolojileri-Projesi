@@ -40,28 +40,62 @@
     <header class="py-5 mt-5 text-center bg-white border-bottom">
         <div class="container pt-4">
             <h1 class="display-4 fw-bold custom-text-primary">İlgi Alanlarım & Favorilerim</h1>
-            <p class="lead text-muted mx-auto mt-2">İnternet üzerinden (API ile) canlı olarak çekilen favori filmlerim, dizilerim ve kitaplarım.</p>
+            <p class="lead text-muted mx-auto mt-2">İnternet üzerinden (API ile) canlı olarak çekilen favorilerim</p>
         </div>
     </header>
-
-    <main class="container py-5 flex-grow-1">
-        
+<main class="container py-5 flex-grow-1">
         <div class="row justify-content-center">
             <div class="col-lg-9"> 
 
-                <h3 class="fw-bold custom-text-primary mb-4 border-bottom pb-2"><i class="fas fa-tv me-2"></i>Diziler</h3>
-                <div class="timeline mb-5" id="series-container">
-                    <p class="text-muted ms-4">Yükleniyor...</p>
+                <h3 class="fw-bold custom-text-primary mb-4 border-bottom pb-2">
+                    <i class="fas fa-camera-retro me-2"></i>Benim Kadrajım
+                </h3>
+                
+                <style>
+                    .gallery-img { width: 100%; height: 250px; object-fit: cover; transition: transform 0.4s ease; }
+                    .gallery-item { position: relative; overflow: hidden; border-radius: 10px; }
+                    .gallery-item:hover .gallery-img { transform: scale(1.1); }
+                    .gallery-caption { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.5); color: white; font-size: 0.9rem; padding: 5px; text-align: center; opacity: 0; transition: opacity 0.3s ease; }
+                    .gallery-item:hover .gallery-caption { opacity: 1; }
+                </style>
+
+                <div class="row g-3 mb-5">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="gallery-item">
+                            <img src="foto1.jpg" class="img-fluid rounded shadow-sm gallery-img" alt="Fotoğraf 1">
+                            <div class="gallery-caption">Doğa Yürüyüşü</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="gallery-item">
+                            <img src="foto2.jpg" class="img-fluid rounded shadow-sm gallery-img" alt="Fotoğraf 2">
+                            <div class="gallery-caption">Güzel Anlar</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="gallery-item">
+                            <img src="foto3.jpg" class="img-fluid rounded shadow-sm gallery-img" alt="Fotoğraf 3">
+                            <div class="gallery-caption">Huzur</div>
+                        </div>
+                    </div>
                 </div>
 
-                <h3 class="fw-bold custom-text-primary mb-4 border-bottom pb-2"><i class="fas fa-book me-2"></i>Kitaplar</h3>
+                <h3 class="fw-bold custom-text-primary mb-4 border-bottom pb-2">
+                    <i class="fas fa-tv me-2"></i>Diziler
+                </h3>
+                <div class="timeline mb-5" id="series-container">
+                    <p class="text-muted ms-4">Diziler yükleniyor...</p>
+                </div>
+
+                <h3 class="fw-bold custom-text-primary mb-4 border-bottom pb-2">
+                    <i class="fas fa-book me-2"></i>Kitaplar
+                </h3>
                 <div class="timeline mb-5" id="books-container">
-                    <p class="text-muted ms-4">Yükleniyor...</p>
+                    <p class="text-muted ms-4">Kitaplar yükleniyor...</p>
                 </div>
 
             </div>
         </div>
-
     </main>
 
 
