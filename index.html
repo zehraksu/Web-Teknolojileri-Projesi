@@ -6,17 +6,43 @@
     <title>Ana Sayfa - Betül Zehra Aksu</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <style>
+        .doodle-icon {
+            position: absolute;
+            opacity: 0.15;
+            z-index: 0;
+            animation: floatAnimation 4s ease-in-out infinite;
+        }
+
+        @keyframes floatAnimation {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .doodle-1 { top: 15%; left: 8%; font-size: 4rem; color: #0d6efd; animation-delay: 0s; }    
+        .doodle-2 { top: 25%; right: 10%; font-size: 3.5rem; color: #fd7e14; animation-delay: 1s; } 
+        .doodle-3 { bottom: 35%; left: 12%; font-size: 4.5rem; color: #198754; animation-delay: 2s; } 
+        .doodle-4 { bottom: 40%; right: 8%; font-size: 3rem; color: #dc3545; animation-delay: 0.5s; } 
+        .doodle-5 { top: 45%; left: 45%; font-size: 2.5rem; color: #6c757d; animation-delay: 1.5s; }  
+        .doodle-6 { top: 10%; left: 40%; font-size: 3rem; color: #0dcaf0; animation-delay: 2.5s; }  
+    </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Web Projesi</a>
+        <div class="container-fluid px-md-5">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="me-2 fs-4" style="font-family: monospace;">
+                    <span class="text-warning fw-bold">&lt;</span><span class="text-white fw-bold">BZA</span><span class="text-warning fw-bold">/&gt;</span>
+                </div>
+                <span class="border-start border-secondary ps-2 fs-6 text-light mt-1">Web Projesi</span>
+            </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobilMenu" aria-controls="mobilMenu" aria-expanded="false" aria-label="Menüyü Aç">
                 <span class="navbar-toggler-icon"></span>
@@ -36,25 +62,42 @@
         </div>
     </nav>
 
-    <header class="hero-section d-flex flex-column align-items-center justify-content-center vh-100 text-center position-relative overflow-hidden">
+    <header class="hero-section d-flex flex-column align-items-center justify-content-center vh-100 position-relative overflow-hidden bg-white text-center text-md-start">
         
-        <div class="soft-shape shape-1"></div>
-        <div class="soft-shape shape-2"></div>
-        <div class="soft-shape shape-3"></div>
+        <i class="fas fa-code doodle-icon doodle-1"></i>
+        <i class="fas fa-music doodle-icon doodle-2"></i>
+        <i class="fas fa-camera-retro doodle-icon doodle-3"></i>
+        <i class="fas fa-gamepad doodle-icon doodle-4"></i>
+        <i class="fas fa-mountain doodle-icon doodle-5"></i>
+        <i class="fas fa-comments doodle-icon doodle-6"></i>
 
-        <h1 class="display-1 fw-bold hero-title z-1">Merhaba!</h1>
-        <p class="lead mt-3 z-1 fw-bold" style="color: var(--metin-renk);">Dünyama Hoş Geldiniz</p>
-        <p class="scroll-hint mt-5 text-muted z-1"><small>Devam etmek için aşağı kaydırın veya tıklayın</small></p>
-        <a href="#profil-alani" class="scroll-down-icon mt-2 z-1"><i class="fas fa-chevron-down fs-1"></i></a>
+        <div class="container z-1 mt-5 pt-5">
+            <div class="row align-items-center g-4">
+                
+                <div class="col-md-6 mb-5 mb-md-0 pe-md-5">
+                    <h1 class="display-1 fw-bold custom-text-primary mb-3">Merhaba!</h1>
+                    <p class="lead mt-3 text-dark fw-bold mb-5" style="font-size:1.25rem;">Dünyama Hoş Geldiniz</p>
+                    
+                    <p class="scroll-hint mt-5 text-muted"><small>Aşağı kaydırarak beni daha yakından tanıyabilirsiniz.</small></p>
+                    <a href="#profil-alani" class="scroll-down-icon mt-2"><i class="fas fa-chevron-down fs-1 custom-text-primary"></i></a>
+                </div>
 
-        <div class="wave-container">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                <path fill="#F8F9FA" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-            </svg>
+               <div class="col-md-6 d-flex justify-content-center">
+    <lottie-player 
+        src="uiux-designer.json" 
+        background="transparent" 
+        speed="1" 
+        style="width: 100%; max-width: 550px; height: auto;" 
+        loop 
+        autoplay>
+    </lottie-player>
+</div>
+
+            </div>
         </div>
     </header>
 
-    <main id="profil-alani" class="container py-5 flex-grow-1">
+    <main id="profil-alani" class="container py-5 flex-grow-1 position-relative z-1">
         <div class="row align-items-center mt-5">
             
             <div class="col-md-6 mb-4 pe-md-5">
@@ -62,8 +105,8 @@
                 <h5 class="text-primary mb-4">Sakarya Üniversitesi | Bilgisayar Mühendisliği Öğrencisi</h5>
                 
                 <p class="lead text-muted" style="line-height: 1.8; font-size: 1.1rem;">
-    18 yaşındayım ve teknolojiyi seven bir mühendis adayıyım. Akademik hayatımda şu an bildiğim yazılım dillerinde uzmanlaşmayı hedeflerken, kişisel vizyonumu genişletmek için  bildiğim dilleri geliştirip ayrıca İtalyanca öğrenmek en büyük hedeflerimden biri. Ekran başında kod yazarak problem çözmekten ne kadar keyif alıyorsam, hayatı çok yönlü yaşamayı da o kadar önemsiyorum. Doğada yürüyüş ve spor yapmak, gitar çalarak müziğin ritmine kapılmak ve anı ölümsüzleştiren fotoğraflar çekmek bana büyük bir enerji veriyor. Kitapların ve filmlerin farklı dünyalarında kaybolmayı, bilgisayar oyunlarıyla strateji geliştirmeyi ve arkadaşlarımla sosyalleşip yeni anılar biriktirmeyi çok seviyorum. Araştırmacı ruhumu, hobilerimden aldığım bu ilham ve dinamizmle besliyorum.
-</p>
+                    18 yaşındayım ve teknolojiye, sürekli öğrenmeye tutkulu bir mühendis adayıyım. Akademik hayatımda şu an bildiğim yazılım dillerinde uzmanlaşmayı hedeflerken, kişisel vizyonumu genişletmek için İtalyanca öğrenmek en büyük hedeflerimden biri. Ekran başında kod yazarak problem çözmekten ne kadar keyif alıyorsam, hayatı çok yönlü yaşamayı da o kadar önemsiyorum. Doğada yürüyüş ve spor yapmak, gitar çalarak müziğin ritmine kapılmak ve anı ölümsüzleştiren fotoğraflar çekmek bana büyük bir enerji veriyor. Kitapların ve filmlerin farklı dünyalarında kaybolmayı, bilgisayar oyunlarıyla strateji geliştirmeyi ve arkadaşlarımla sosyalleşip yeni anılar biriktirmeyi çok seviyorum. Araştırmacı ruhumu, hobilerimden aldığım bu ilham ve dinamizmle besliyorum.
+                </p>
 
                 <h5 class="fw-bold mt-5 mb-3 baslik-renk">Bana Ulaşın</h5>
                 <div class="d-flex flex-wrap gap-3">
@@ -94,5 +137,5 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+</body>
 </html>
