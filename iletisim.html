@@ -10,12 +10,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     
-    <!-- Vue.js Kütüphanesi (Proje Şartı İçin) -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body class="d-flex flex-column min-vh-100 bg-light">
 
-    <!-- Üst Menü -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">Web Projesi</a>
@@ -36,16 +34,14 @@
         </div>
     </nav>
 
-    <!-- Vue.js Uygulama Kapsayıcısı -->
     <main id="app" class="container py-5 mt-5 flex-grow-1">
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5 bg-white">
                     <h2 class="fw-bold custom-text-primary text-center mb-4 border-bottom pb-3">İletişim Formu</h2>
                     
-                    <!-- Hata Mesajları Kutusu -->
                     <div v-if="vueHatalar.length > 0" class="alert alert-danger shadow-sm">
-                        <strong class="d-block mb-2"><i class="fas fa-exclamation-triangle me-2"></i>Vue.js Denetim Hataları:</strong>
+                        <strong class="d-block mb-2"><i class="fas fa-exclamation-triangle me-2"></i>Lütfen Hataları Düzeltin:</strong>
                         <ul class="mb-0">
                             <li v-for="hata in vueHatalar">{{ hata }}</li>
                         </ul>
@@ -53,17 +49,16 @@
                     
                     <div id="native-alert" class="alert alert-danger d-none shadow-sm"></div>
 
-                    <!-- PHP'ye veri gönderecek form -->
                     <form id="contactForm" action="sonuc.php" method="POST" novalidate ref="formElement">
                         
                         <div class="row g-3 mb-3">
                             <div class="col-md-6">
                                 <label for="ad" class="form-label fw-bold">Adınız</label>
-                                <input type="text" class="form-control" id="ad" name="ad" v-model="form.ad" placeholder="Örn: Ali">
+                                <input type="text" class="form-control" id="ad" name="ad" v-model="form.ad" placeholder="Sadece harf giriniz">
                             </div>
                             <div class="col-md-6">
                                 <label for="soyad" class="form-label fw-bold">Soyadınız</label>
-                                <input type="text" class="form-control" id="soyad" name="soyad" v-model="form.soyad" placeholder="Örn: Yılmaz">
+                                <input type="text" class="form-control" id="soyad" name="soyad" v-model="form.soyad" placeholder="Sadece harf giriniz">
                             </div>
                         </div>
 
@@ -112,11 +107,16 @@
                             </label>
                         </div>
 
-                        <!-- İki Farklı Doğrulama Butonu (Proje Şartı) -->
-                        <div class="d-flex justify-content-end gap-3 mt-4">
+                        <div class="d-flex justify-content-end align-items-center flex-wrap gap-2 mt-4">
+                            
+                            <button type="button" class="btn btn-secondary fw-bold px-4 shadow-sm me-auto" @click="formuSifirla">
+                                <i class="fas fa-eraser me-2"></i>Temizle
+                            </button>
+                            
                             <button type="button" id="btnNativeJS" class="btn btn-dark fw-bold px-4 shadow-sm">
                                 <i class="fas fa-code me-2"></i>Gönder (Native JS)
                             </button>
+                            
                             <button type="button" @click="kontrolEtVue" class="btn btn-success fw-bold px-4 shadow-sm">
                                 <i class="fab fa-vuejs me-2"></i>Gönder (Vue.js)
                             </button>
